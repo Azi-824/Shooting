@@ -13,8 +13,6 @@ class Load : public Scene	//Sceneクラスを継承
 {
 private:
 
-	bool IsLoad;	//読み込めたか
-
 public:
 
 	Load();		//コンストラクタ 

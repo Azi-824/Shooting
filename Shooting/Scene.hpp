@@ -36,7 +36,6 @@ protected:
 	static int NowScene;		//現在のシーン
 	static KeyDown* keydown;	//キー
 	static bool IsGameStart;	//ゲームスタートできるか
-	bool IsLoad;	//読み込めたか
 
 public:
 
