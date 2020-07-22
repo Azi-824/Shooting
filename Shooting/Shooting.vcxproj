@@ -159,6 +159,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Play.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Target.cpp" />
     <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +172,7 @@
     <ClInclude Include="main.hpp" />
     <ClInclude Include="Play.hpp" />
     <ClInclude Include="Scene.hpp" />
+    <ClInclude Include="Target.hpp" />
     <ClInclude Include="Title.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
