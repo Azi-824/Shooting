@@ -16,7 +16,7 @@ private:
 public:
 
 	Play();		//コンストラクタ
-	~Play();	//デストラクタ
+	~Play();			//デストラクタ
 
 	bool DataLoad() override;	//データ読込
 	void PlayScene() override;	//プレイ画面の処理

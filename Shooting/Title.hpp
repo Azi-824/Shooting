@@ -16,7 +16,7 @@ private:
 public:
 
 	Title();		//コンストラクタ 
-	~Title();		//デストラクタ
+	~Title();			//デストラクタ
 
 	bool DataLoad() override;	//データ読込
 	void PlayScene() override;	//タイトル画面の処理

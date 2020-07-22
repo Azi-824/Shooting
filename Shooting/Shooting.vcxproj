@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="End.cpp" />
     <ClCompile Include="Fps.cpp" />
+    <ClCompile Include="Image.cpp" />
     <ClCompile Include="Keydown.cpp" />
     <ClCompile Include="Load.cpp" />
     <ClCompile Include="main.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="End.hpp" />
     <ClInclude Include="Fps.hpp" />
     <ClInclude Include="Global.hpp" />
+    <ClInclude Include="Image.hpp" />
     <ClInclude Include="Keydown.hpp" />
     <ClInclude Include="Load.hpp" />
     <ClInclude Include="main.hpp" />

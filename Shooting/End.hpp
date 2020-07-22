@@ -16,7 +16,7 @@ private:
 public:
 
 	End();			//コンストラクタ
-	~End();			//デストラクタ
+	~End();					//デストラクタ
 
 	bool DataLoad() override;	//データ読込
 	void PlayScene() override;	//エンド画面の処理

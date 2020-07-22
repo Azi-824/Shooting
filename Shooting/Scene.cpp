@@ -10,10 +10,15 @@ KeyDown* Scene::keydown = new KeyDown();	//キー入力
 bool Scene::IsGameStart = false;			//ゲームスタートできるか
 
 //コンストラクタ
-Scene::Scene(){}
+Scene::Scene()
+{
+}
 
 //デストラクタ
-Scene::~Scene(){}
+Scene::~Scene()
+{
+	delete back;	//back破棄
+}
 
 //キー更新
 void Scene::KeyUpdate()

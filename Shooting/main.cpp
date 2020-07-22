@@ -2,13 +2,6 @@
 
 //#################### ヘッダファイル読み込み #######################
 #include "main.hpp"
-#include "Global.hpp"
-#include "Fps.hpp"
-#include "Scene.hpp"
-#include "Load.hpp"
-#include "Title.hpp"
-#include "Play.hpp"
-#include "End.hpp"
 
 using std::vector;
 //########## グローバルオブジェクト ##########

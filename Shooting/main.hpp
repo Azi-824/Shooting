@@ -4,13 +4,20 @@
 
 
 //#################### ヘッダファイル読み込み #####################
-#include "DxLib.h"
+#include "Global.hpp"
+#include "Fps.hpp"
+#include "Scene.hpp"
+#include "Load.hpp"
+#include "Title.hpp"
+#include "Play.hpp"
+#include "End.hpp"
+
 
 //########## マクロ定義 ##########
 #define GAME_COLOR	32		//画面のカラービット
 #define GAME_FPS_SPEED					   60
 
-#define GAME_WINDOW_NAME	"居合"				//ウィンドウのタイトル
+#define GAME_WINDOW_NAME	"射的"				//ウィンドウのタイトル
 #define GAME_WINDOW_MODECHANGE	TRUE			//TRUE：ウィンドウモード / FALSE：フルスクリーン
 
 #define SET_WINDOW_ST_MODE_DEFAULT			0	//デフォルト

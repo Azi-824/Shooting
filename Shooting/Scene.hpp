@@ -6,6 +6,7 @@
 //################### ヘッダファイル読み込み ######################
 #include "Global.hpp"
 #include "Keydown.hpp"
+#include "Image.hpp"
 
 //################### マクロ定義 #########################
 //テキスト関係
@@ -33,9 +34,13 @@ class Scene
 {
 protected:
 
+	//クラス共通
 	static int NowScene;		//現在のシーン
 	static KeyDown* keydown;	//キー
 	static bool IsGameStart;	//ゲームスタートできるか
+
+	//インスタンス毎
+	Image* back;	//背景画像
 
 public:
 
