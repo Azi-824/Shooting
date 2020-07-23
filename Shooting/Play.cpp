@@ -29,7 +29,7 @@ bool Play::DataLoad()
 void Play::PlayScene()
 {
 	//****************************** 処理系 ********************************
-	if (keydown->IsKeyDownOne(KEY_INPUT_RETURN))		//エンターキーを押されたら
+	if (Mouse::OnLeftClick())	//左クリックされたら
 	{
 		NowScene = SCENE_END;	//エンド画面へ
 	}

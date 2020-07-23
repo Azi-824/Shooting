@@ -6,6 +6,7 @@
 //################### ヘッダファイル読み込み ######################
 #include "Global.hpp"
 #include "Keydown.hpp"
+#include "Mouse.hpp"
 #include "Image.hpp"
 
 //################### マクロ定義 #########################

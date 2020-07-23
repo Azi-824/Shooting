@@ -28,10 +28,11 @@ bool End::DataLoad()
 void End::PlayScene()
 {
 	//************************** 処理系 *********************************
-	if (this->keydown->IsKeyDownOne(KEY_INPUT_RETURN))		//エンターキーを押されたら
+	if (Mouse::OnLeftClick())	//左クリックされたら
 	{
-		this->NowScene = (int)SCENE_TITLE;	//タイトル画面へ
+		NowScene = SCENE_TITLE;	//タイトル画面へ
 	}
+
 
 	//**************************** 描画系 *******************************
 	DrawString(TEST_TEXT_X, TEST_TEXT_Y, END_TEXT, GetColor(255, 255, 255));	//テスト用のテキストを描画

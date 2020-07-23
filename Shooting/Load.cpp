@@ -27,10 +27,11 @@ void Load::PlayScene()
 	//***************************** 処理系 ************************************
 	if (IsGameStart)	//ゲームスタートできるなら
 	{
-		if (keydown->IsKeyDownOne(KEY_INPUT_RETURN))		//エンターキーを押されたら
+		if (Mouse::OnLeftClick())	//左クリックされたら
 		{
 			NowScene = SCENE_TITLE;	//タイトル画面へ
 		}
+
 	}
 
 	if (GetASyncLoadNum() == 0)	//非同期で読み込んでいる処理が終わったら
