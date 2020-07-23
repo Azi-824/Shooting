@@ -61,6 +61,7 @@ public:
 	int GetHeight();	//‚‚³‚ğæ“¾
 
 	bool GetIsLoad(void);			//“Ç‚İ‚ß‚½H
+	bool GetIsDraw();				//•`‰æ‚µ‚Ä‚æ‚¢‚©æ“¾
 	void SetIsDraw(bool);			//•`‰æ‚µ‚Ä‚æ‚¢‚©İ’è
 
 	void Draw(int, int);		//‰æ‘œ‚ğ•`‰æ

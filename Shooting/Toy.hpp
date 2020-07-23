@@ -19,6 +19,7 @@ public:
 	Toy(Image*);		//コンストラクタ
 	~Toy();				//デストラクタ
 
+	void UpDate() override;	//毎回行う処理
 	void Event() override;	//クリックされた時の処理
 
 };

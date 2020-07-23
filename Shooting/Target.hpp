@@ -41,6 +41,7 @@ public:
 	Target();		//コンストラクタ
 	~Target();		//デストラクタ
 
+	virtual void UpDate() = 0;	//毎回行う処理
 	virtual void SetInit(int);	//初期設定
 	virtual void Event() = 0;	//的をクリックしたときのイベント
 	RECT GetRect();				//領域の取得

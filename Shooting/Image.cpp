@@ -145,6 +145,12 @@ bool Image::GetIsLoad(void)
 	return IsLoad;
 }
 
+//•`‰æ‚µ‚Ä‚æ‚¢‚©æ“¾
+bool Image::GetIsDraw()
+{
+	return IsDraw;
+}
+
 //•`‰æ‚µ‚Ä‚æ‚¢‚©İ’è
 void Image::SetIsDraw(bool isdraw)
 {

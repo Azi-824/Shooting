@@ -19,6 +19,7 @@ public:
 	Bomb(Image*);	//コンストラクタ
 	~Bomb();		//デストラクタ
 
+	void UpDate() override;	//毎回行う処理
 	void Event() override;	//クリックされた時の処理
 
 };

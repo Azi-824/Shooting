@@ -51,10 +51,6 @@ void Target::CreateDrawPos()
 //•`‰æ
 void Target::Draw()
 {
-	if (time->GetIsLimit())	//§ŒÀŽžŠÔ‚ð‰z‚µ‚½‚ç
-	{
-		img->SetIsDraw(false);	//•`‰æ‚ð‚â‚ß‚é
-	}
 	img->Draw(DrawX, DrawY);	//•`‰æ
 }
 

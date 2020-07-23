@@ -67,6 +67,8 @@ void Play::Run()
 	//****************************** 処理系 ********************************
 	for (auto t : target)
 	{
+		t->UpDate();//更新
+
 		if (Mouse::OnLeftClick(t->GetRect()))	//的をクリックしたら
 		{
 			t->Event();	//イベント処理
