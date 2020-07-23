@@ -56,7 +56,6 @@ bool GameLoop()
 
 	if (ClearDrawScreen() != 0) { return false; }	//画面を消去できなかったとき、強制終了
 
-	Scene::KeyUpdate();	//キーの入力状態を更新する
 	Mouse::ClickUpDate();	//マウスの入力情報を更新する
 
 	fps->Update();		//FPSの処理[更新]

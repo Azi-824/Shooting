@@ -5,7 +5,6 @@
 
 //################### ヘッダファイル読み込み ######################
 #include "Global.hpp"
-#include "Keydown.hpp"
 #include "Mouse.hpp"
 #include "Image.hpp"
 
@@ -37,7 +36,6 @@ protected:
 
 	//クラス共通
 	static int NowScene;		//現在のシーン
-	static KeyDown* keydown;	//キー
 	static bool IsGameStart;	//ゲームスタートできるか
 
 	//インスタンス毎
@@ -47,8 +45,6 @@ public:
 
 	Scene();		//コンストラクタ
 	~Scene();		//デストラクタ
-
-	static void KeyUpdate();	//キー更新
 
 	static int GetNowScene();	//現在のシーンを取得
 
