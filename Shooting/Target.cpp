@@ -12,7 +12,7 @@ Target::Target()
 	//メンバー初期化
 	DrawX = 0;			//描画X位置
 	DrawY = 0;			//描画Y位置
-	Score = 0;			//スコア
+	score = 0;			//スコア
 	img = new Image();	//画像
 	rect = { 0,0,0,0 };	//領域
 }
@@ -33,7 +33,7 @@ void Target::SetInit(int score)
 	rect.top = DrawY;						//左Y
 	rect.right = DrawX + img->GetWidth();	//右X
 	rect.bottom = DrawY + img->GetHeight();	//右Y
-	Score = score;	//スコア設定
+	this->score = score;	//スコア設定
 }
 
 //描画位置生成

@@ -63,8 +63,13 @@ void Play::SetInit()
 void Play::Run()
 {
 	//****************************** 処理系 ********************************
-	if (Mouse::OnLeftClick())	//左クリックされたら
+	//if (Mouse::OnLeftClick())	//左クリックされたら
+	//{
+	//	NowScene = SCENE_END;	//エンド画面へ
+	//}
+	if (Mouse::OnLeftClick(target.at(TGNAME_GHOST)->GetRect()))	//的をクリックしたら
 	{
+		target.at(TGNAME_GHOST)->Event();	//イベント処理
 		NowScene = SCENE_END;	//エンド画面へ
 	}
 

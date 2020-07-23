@@ -20,4 +20,6 @@ Toy::~Toy(){}
 void Toy::Event()
 {
 	DrawString(100, 300, "ToyのEvent()", COLOR_WHITE);	//テスト用のテキストを描画
+	Score::AddScore(score);	//スコア加算
+	
 }

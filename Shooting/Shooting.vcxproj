@@ -159,6 +159,7 @@
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Play.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="Target.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Toy.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Mouse.hpp" />
     <ClInclude Include="Play.hpp" />
     <ClInclude Include="Scene.hpp" />
+    <ClInclude Include="Score.hpp" />
     <ClInclude Include="Target.hpp" />
     <ClInclude Include="Title.hpp" />
     <ClInclude Include="Toy.hpp" />

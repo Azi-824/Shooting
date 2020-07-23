@@ -6,6 +6,7 @@
 //############### ヘッダファイル読み込み ##################
 #include "Global.hpp"
 #include "Image.hpp"
+#include "Score.hpp"
 
 //############### マクロ定義 ####################
 
@@ -30,7 +31,7 @@ protected:
 
 	Image* img;		//画像
 	RECT rect;		//領域
-	int Score;		//スコア
+	int score;		//スコア
 
 public:
 
