@@ -74,7 +74,7 @@ void Play::Run()
 			t->Event();	//イベント処理
 		}
 	}
-	if (Mouse::OnRightClick())	//的をクリックしたら
+	if (Mouse::OnRightClick())	//右クリックしたら
 	{
 		NowScene = SCENE_END;	//エンド画面へ
 	}
