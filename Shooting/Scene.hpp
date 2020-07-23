@@ -36,7 +36,6 @@ protected:
 
 	//クラス共通
 	static int NowScene;		//現在のシーン
-	static bool IsGameStart;	//ゲームスタートできるか
 
 	//インスタンス毎
 	Image* back;	//背景画像

@@ -6,7 +6,6 @@
 //############## クラス定義 ################
 
 int Scene::NowScene = 0;	//現在のシーン
-bool Scene::IsGameStart = false;			//ゲームスタートできるか
 
 //コンストラクタ
 Scene::Scene()

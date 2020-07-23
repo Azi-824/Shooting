@@ -13,6 +13,8 @@ class Load : public Scene	//Sceneクラスを継承
 {
 private:
 
+	bool IsGameStart;	//ゲームスタートできるか
+
 public:
 
 	Load();	//コンストラクタ 
