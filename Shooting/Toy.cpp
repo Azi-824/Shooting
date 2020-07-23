@@ -19,5 +19,5 @@ Toy::~Toy(){}
 //クリックされた時の処理
 void Toy::Event()
 {
-	DrawString(100, 100, "ToyのEvent()", COLOR_WHITE);	//テスト用のテキストを描画
+	DrawString(100, 300, "ToyのEvent()", COLOR_WHITE);	//テスト用のテキストを描画
 }
