@@ -15,20 +15,50 @@ Play::Play()
 //デストラクタ
 Play::~Play()
 {
-
+	for (auto t : target)
+	{
+		delete t;	//target破棄
+	}
+	//vectorの解放
+	vector<Target*> v;
+	target.swap(v);
 }
 
 //データ読込
 bool Play::DataLoad()
 {
+	//画像関係
 	if (!back->Load(IMG_DIR_BACK, IMG_NAME_PLAY)) { return false; }	//背景画像読み込み
+
+	//的関係
+	Image* i = new Image(IMG_TOY_DIR, IMG_NAME_TOY01);	//おもちゃ01の画像
+	if (!i->GetIsLoad()) { return false; }	//読み込み失敗
+	target.push_back(new Toy(i));	//おもちゃを生成
+
 	return true;
+}
+
+//初期設定
+void Play::SetInit()
+{
+	back->SetInit();	//背景画像初期設定
+	for (auto t : target)
+	{
+		t->SetInit(100);	//初期設定
+	}
 }
 
 //プレイ画面の処理
 void Play::PlayScene()
 {
 	//****************************** 処理系 ********************************
+	static bool IsInit = false;	//初期設定をしたか
+	if (!IsInit)	//初期設定をしていなかったら
+	{
+		SetInit();	//初期設定
+		IsInit = true;	//初期設定完了
+	}
+
 	if (Mouse::OnLeftClick())	//左クリックされたら
 	{
 		NowScene = SCENE_END;	//エンド画面へ
@@ -36,6 +66,10 @@ void Play::PlayScene()
 
 	//***************************** 描画系 *********************************
 	back->Draw(GAME_LEFT, GAME_TOP);	//背景描画
+	for (auto t : target)
+	{
+		t->Draw();	//的の描画
+	}
 	DrawString(TEST_TEXT_X, TEST_TEXT_Y, PLAY_TEXT, GetColor(255, 255, 255));	//テスト用のテキストを描画
 
 }

@@ -7,13 +7,13 @@
 //############## クラス定義 ################
 
 //コンストラクタ
-Load::Load()
-{
-	
-}
+Load::Load(){}
 
 //デストラクタ
 Load::~Load(){}
+
+//初期設定
+void Load::SetInit(){}
 
 //データ読込
 bool Load::DataLoad()

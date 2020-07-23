@@ -161,6 +161,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Target.cpp" />
     <ClCompile Include="Title.cpp" />
+    <ClCompile Include="Toy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="End.hpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="Target.hpp" />
     <ClInclude Include="Title.hpp" />
+    <ClInclude Include="Toy.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

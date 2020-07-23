@@ -18,6 +18,7 @@ public:
 	Title();		//コンストラクタ 
 	~Title();			//デストラクタ
 
+	void SetInit() override;	//初期設定
 	bool DataLoad() override;	//データ読込
 	void PlayScene() override;	//タイトル画面の処理
 

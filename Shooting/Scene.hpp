@@ -48,6 +48,7 @@ public:
 
 	static int GetNowScene();	//現在のシーンを取得
 
+	virtual void SetInit() = 0;		//初期設定
 	virtual bool DataLoad() = 0;	//シーンごとの読み込み
 	virtual void PlayScene() = 0;	//シーン毎の処理
 
