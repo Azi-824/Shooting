@@ -63,13 +63,6 @@ void Play::SetInit()
 void Play::Run()
 {
 	//****************************** 処理系 ********************************
-	static bool IsInit = false;	//初期設定をしたか
-	if (!IsInit)	//初期設定をしていなかったら
-	{
-		SetInit();	//初期設定
-		IsInit = true;	//初期設定完了
-	}
-
 	if (Mouse::OnLeftClick())	//左クリックされたら
 	{
 		NowScene = SCENE_END;	//エンド画面へ

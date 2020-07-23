@@ -62,6 +62,16 @@ bool GameLoop()
 
 	//▼▼▼▼▼ゲームのシーンここから▼▼▼▼▼
 
+	static bool IsInit = false;	//初期設定をしたか
+	if (!IsInit)	//初期設定をしていなかったら
+	{
+		for (auto s : scene)
+		{
+			s->SetInit();	//初期設定
+		}
+		IsInit = true;		//初期設定終了
+	}
+
 	scene.at(Scene::GetNowScene())->Run();	//各シーンの処理
 
 	//▲▲▲▲▲ゲームのシーンここまで▲▲▲▲▲
