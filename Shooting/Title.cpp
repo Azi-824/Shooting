@@ -32,7 +32,7 @@ void Title::SetInit()
 
 
 //ƒ^ƒCƒgƒ‹‰æ–Ê‚Ìˆ—
-void Title::PlayScene()
+void Title::Run()
 {
 
 	//***************************** ˆ—Œn ******************************

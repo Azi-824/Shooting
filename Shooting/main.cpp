@@ -62,7 +62,7 @@ bool GameLoop()
 
 	//▼▼▼▼▼ゲームのシーンここから▼▼▼▼▼
 
-	scene.at(Scene::GetNowScene())->PlayScene();	//各シーンの処理
+	scene.at(Scene::GetNowScene())->Run();	//各シーンの処理
 
 	//▲▲▲▲▲ゲームのシーンここまで▲▲▲▲▲
 

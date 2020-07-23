@@ -50,6 +50,6 @@ public:
 
 	virtual void SetInit() = 0;		//初期設定
 	virtual bool DataLoad() = 0;	//シーンごとの読み込み
-	virtual void PlayScene() = 0;	//シーン毎の処理
+	virtual void Run() = 0;			//シーン毎の処理
 
 };

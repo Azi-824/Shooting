@@ -32,7 +32,7 @@ void End::SetInit()
 
 
 //ƒGƒ“ƒh‰æ–Ê‚Ìˆ—
-void End::PlayScene()
+void End::Run()
 {
 	//************************** ˆ—Œn *********************************
 	static bool IsInit = false;	//‰Šúİ’è‚ğ‚µ‚½‚©

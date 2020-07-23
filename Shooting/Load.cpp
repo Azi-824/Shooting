@@ -22,7 +22,7 @@ bool Load::DataLoad()
 }
 
 //読み込み画面の処理
-void Load::PlayScene()
+void Load::Run()
 {
 	//***************************** 処理系 ************************************
 	if (IsGameStart)	//ゲームスタートできるなら

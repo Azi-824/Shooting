@@ -60,7 +60,7 @@ void Play::SetInit()
 }
 
 //ƒvƒŒƒC‰æ–Ê‚Ìˆ—
-void Play::PlayScene()
+void Play::Run()
 {
 	//****************************** ˆ—Œn ********************************
 	static bool IsInit = false;	//‰Šúİ’è‚ğ‚µ‚½‚©
