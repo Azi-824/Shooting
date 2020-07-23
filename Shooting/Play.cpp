@@ -22,6 +22,14 @@ Play::~Play()
 	//vectorの解放
 	vector<Target*> v;
 	target.swap(v);
+
+	for (auto i : tg_img)
+	{
+		delete i;	//tg_img破棄
+	}
+	//vectorの解放
+	vector<Image*> v2;
+	tg_img.swap(v2);
 }
 
 //データ読込
@@ -31,9 +39,12 @@ bool Play::DataLoad()
 	if (!back->Load(IMG_DIR_BACK, IMG_NAME_PLAY)) { return false; }	//背景画像読み込み
 
 	//的関係
-	Image* i = new Image(IMG_TOY_DIR, IMG_NAME_TOY01);	//おもちゃ01の画像
-	if (!i->GetIsLoad()) { return false; }	//読み込み失敗
-	target.push_back(new Toy(i));	//おもちゃを生成
+	tg_img.push_back(new Image(IMG_TOY_DIR, IMG_NAME_TOY01));	//ぬいぐるみ（お化けを追加）
+	for (auto i : tg_img)
+	{
+		if (!i->GetIsLoad()) { return false; }	
+	}
+	target.push_back(new Toy(tg_img.at(TGNAME_GHOST)));	//ぬいぐるみ（お化けを追加）
 
 	return true;
 }
