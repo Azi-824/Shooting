@@ -10,6 +10,8 @@
 #include "Time.hpp"
 
 //############### マクロ定義 ####################
+#define LIMIT_MIN	3	//制限時間の最小値
+#define LIMIT_MAX	8	//制限時間の最大値
 
 //############### 列挙型 ####################
 enum TARGET_NAME

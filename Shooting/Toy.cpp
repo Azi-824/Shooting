@@ -11,7 +11,7 @@
 Toy::Toy(Image* img)
 {
 	this->img = img;	//‰æ‘œ
-	time->SetLimit(5);	//§ŒÀŽžŠÔÝ’è
+	time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//§ŒÀŽžŠÔÝ’è
 }
 
 //ƒfƒXƒgƒ‰ƒNƒ^
@@ -27,6 +27,7 @@ void Toy::UpDate()
 		•`‰æ‚µ‚Ä‚¢‚È‚¢Žž‚ÍAŽŸ‚Ì•`‰æ‚Ü‚Å‚ÌŽžŠÔ‚ª‰ß‚¬‚½‚Æ‚«‚Ì‚½‚ßAÄ•`‰æ‚·‚é
 		*/
 		img->SetIsDraw(!img->GetIsDraw());	//Œ»Ý‚Ì•`‰æó‘Ô‚Ì‹t‚ðÝ’è
+		time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//§ŒÀŽžŠÔÝ’è
 		time->StartCount();	//Œv‘ªŠJŽn
 	}
 }
