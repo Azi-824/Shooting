@@ -11,6 +11,7 @@
 Toy::Toy(Image* img)
 {
 	this->img = img;	//画像
+	time->SetLimit(5);	//制限時間設定
 }
 
 //デストラクタ

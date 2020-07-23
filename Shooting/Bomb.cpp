@@ -10,6 +10,7 @@
 Bomb::Bomb(Image* img)
 {
 	this->img = img;	//画像
+	time->SetLimit(8);	//制限時間設定
 }
 
 //デストラクタ

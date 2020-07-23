@@ -7,6 +7,7 @@
 #include "Global.hpp"
 #include "Image.hpp"
 #include "Score.hpp"
+#include "Time.hpp"
 
 //############### マクロ定義 ####################
 
@@ -32,6 +33,7 @@ protected:
 
 	Image* img;		//画像
 	RECT rect;		//領域
+	Time* time;		//時間
 	int score;		//スコア
 
 public:
@@ -40,7 +42,7 @@ public:
 	~Target();		//デストラクタ
 
 	virtual void SetInit(int);	//初期設定
-	virtual void Event() = 0;	//的をクリックしたときのイベント(後からスコアクラスを受け取り、Event()内でスコア加算をするように変更)
+	virtual void Event() = 0;	//的をクリックしたときのイベント
 	RECT GetRect();				//領域の取得
 	void Draw();				//描画
 

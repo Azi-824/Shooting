@@ -162,6 +162,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Target.cpp" />
+    <ClCompile Include="Time.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Toy.cpp" />
   </ItemGroup>
@@ -178,6 +179,7 @@
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="Score.hpp" />
     <ClInclude Include="Target.hpp" />
+    <ClInclude Include="Time.hpp" />
     <ClInclude Include="Title.hpp" />
     <ClInclude Include="Toy.hpp" />
   </ItemGroup>

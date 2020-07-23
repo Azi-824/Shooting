@@ -14,6 +14,7 @@ Target::Target()
 	DrawY = 0;			//•`‰æYˆÊ’u
 	score = 0;			//ƒXƒRƒA
 	img = new Image();	//‰æ‘œ
+	time = new Time();	//ŽžŠÔ
 	rect = { 0,0,0,0 };	//—Ìˆæ
 }
 
@@ -21,6 +22,7 @@ Target::Target()
 Target::~Target()
 {
 	delete img;	//img”jŠü
+	delete time;//time”jŠü
 }
 
 //‰ŠúÝ’è
@@ -34,6 +36,7 @@ void Target::SetInit(int score)
 	rect.right = DrawX + img->GetWidth();	//‰EX
 	rect.bottom = DrawY + img->GetHeight();	//‰EY
 	this->score = score;	//ƒXƒRƒAÝ’è
+	time->StartCount();		//Œv‘ªŠJŽn
 }
 
 //•`‰æˆÊ’u¶¬
@@ -48,6 +51,10 @@ void Target::CreateDrawPos()
 //•`‰æ
 void Target::Draw()
 {
+	if (time->GetIsLimit())	//§ŒÀŽžŠÔ‚ð‰z‚µ‚½‚ç
+	{
+		img->SetIsDraw(false);	//•`‰æ‚ð‚â‚ß‚é
+	}
 	img->Draw(DrawX, DrawY);	//•`‰æ
 }
 
