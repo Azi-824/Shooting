@@ -48,9 +48,12 @@ private:
 
 public:
 	Image(const char *,const char *);	//コンストラクタ
+	Image();							//コンストラクタ
 	virtual ~Image();					//デストラクタ
 
-	std::string GetFileName(void);	//名前を取得
+	bool Load(const char*, const char*);//読み込み
+
+	string GetFileName(void);	//名前を取得
 
 	void SetInit(void);				//サイズをセット
 

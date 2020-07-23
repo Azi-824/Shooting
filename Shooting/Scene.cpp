@@ -12,6 +12,7 @@ bool Scene::IsGameStart = false;			//ゲームスタートできるか
 //コンストラクタ
 Scene::Scene()
 {
+	back = new Image();	//インスタンス生成
 }
 
 //デストラクタ

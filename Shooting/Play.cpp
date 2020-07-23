@@ -21,8 +21,7 @@ Play::~Play()
 //ƒf[ƒ^“Ç
 bool Play::DataLoad()
 {
-	back = new Image(IMG_DIR_BACK, IMG_NAME_PLAY);	//”wŒi‰æ‘œ¶¬
-	if (!back->GetIsLoad()) { return false; }		//“Ç‚İ‚İ¸”s
+	if (!back->Load(IMG_DIR_BACK, IMG_NAME_PLAY)) { return false; }	//”wŒi‰æ‘œ“Ç‚İ‚İ
 	return true;
 }
 

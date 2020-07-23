@@ -20,8 +20,7 @@ Title::~Title()
 //ƒf[ƒ^“Ç
 bool Title::DataLoad()
 {
-	back = new Image(IMG_DIR_BACK, IMG_NAME_TITLE);	//”wŒi‰æ‘œ¶¬
-	if (!back->GetIsLoad()) { return false; }		//“Ç‚İ‚İ¸”s
+	if (!back->Load(IMG_DIR_BACK, IMG_NAME_TITLE)) { return false; }	//”wŒi‰æ‘œ“Ç‚İ‚İ
 	return true;	//“Ç‚İ‚İ¬Œ÷
 }
 
