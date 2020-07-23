@@ -40,11 +40,13 @@ bool Play::DataLoad()
 
 	//的関係
 	tg_img.push_back(new Image(IMG_TOY_DIR, IMG_NAME_TOY01));	//ぬいぐるみ（お化けを追加）
+	tg_img.push_back(new Image(IMG_BOMB_DIR, IMG_NAME_BOMB01));	//爆弾1
 	for (auto i : tg_img)
 	{
 		if (!i->GetIsLoad()) { return false; }	
 	}
-	target.push_back(new Toy(tg_img.at(TGNAME_GHOST)));	//ぬいぐるみ（お化けを追加）
+	target.push_back(new Toy(tg_img.at(TGNAME_GHOST)));		//ぬいぐるみ（お化けを追加）
+	target.push_back(new Bomb(tg_img.at(TGNAME_BOMB1)));	//爆弾1
 
 	return true;
 }
@@ -63,15 +65,18 @@ void Play::SetInit()
 void Play::Run()
 {
 	//****************************** 処理系 ********************************
-	//if (Mouse::OnLeftClick())	//左クリックされたら
-	//{
-	//	NowScene = SCENE_END;	//エンド画面へ
-	//}
-	if (Mouse::OnLeftClick(target.at(TGNAME_GHOST)->GetRect()))	//的をクリックしたら
+	for (auto t : target)
 	{
-		target.at(TGNAME_GHOST)->Event();	//イベント処理
+		if (Mouse::OnLeftClick(t->GetRect()))	//的をクリックしたら
+		{
+			t->Event();	//イベント処理
+		}
+	}
+	if (Mouse::OnRightClick())	//的をクリックしたら
+	{
 		NowScene = SCENE_END;	//エンド画面へ
 	}
+
 
 	//***************************** 描画系 *********************************
 	back->Draw(GAME_LEFT, GAME_TOP);	//背景描画
