@@ -76,15 +76,14 @@ bool Music::GetIsPlay()
 //初期設定
 void Music::SetInit(int type, double volume)
 {
-	PlayType = type;	//再生方法設定
-	ChengeVolume(volume);
+	PlayType = type;		//再生方法設定
+	ChengeVolume(volume);	//音量を設定
 }
 
 //再生方法を変更する
 void Music::ChengePlayType(int type)
 {
 	PlayType = type;	
-	return;
 }
 
 //音量を変更する
@@ -92,7 +91,6 @@ void Music::ChengePlayType(int type)
 void Music::ChengeVolume(double volume)
 {
 	ChangeVolumeSoundMem(VOLUME_MAX * (volume / 100), Handle);
-	return;
 }
 
 //音を再生する
@@ -110,7 +108,6 @@ void Music::Play(bool check)
 		PlaySoundMem(Handle, PlayType);	//音の再生
 	}
 
-	return;
 }
 
 //音を再生する(1回だけ)
@@ -143,12 +140,10 @@ void Music::PlayOne(bool check)
 void Music::PlayReset()
 {
 	IsPlayed = false;	//再生済みじゃない
-	return;
 }
 
 //音を止める
 void Music::Stop(void)
 {
 	StopSoundMem(Handle);		//音を止める
-
 }

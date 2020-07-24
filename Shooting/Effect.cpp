@@ -53,21 +53,21 @@ void Effect::SetEffect(Animation* anim,Music* se)
 void Effect::Draw(int x, int y)
 {
 	anim->Draw(x, y);	//アニメーション描画
-	se->Play();			//効果音再生
+	se->PlayOne(false);	//効果音再生
 }
 
 //画面中央に描画
 void Effect::DrawCenter()
 {
 	anim->DrawCenter();	//アニメーション描画
-	se->Play();			//効果音再生
+	se->PlayOne(false);	//効果音再生
 }
 
 //指定された領域内の中央に描画
 void Effect::DrawCenter(RECT rect)
 {
-	anim->DrawCenter(rect);
-	se->Play();			//効果音再生
+	anim->DrawCenter(rect);	//アニメーション描画
+	se->PlayOne(false);	//効果音再生
 }
 
 //初期設定

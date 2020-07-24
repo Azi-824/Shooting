@@ -59,7 +59,7 @@ public:
 	void ChengePlayType(int);				//音の再生方法を変更する
 	void ChengeVolume(double);				//音量を変更する
 
-	void Play(bool check =true);			//音を再生する
+	void Play(bool check = true);			//音を再生する
 	void PlayOne(bool check = true);		//音を再生する(1回だけ)
 
 	void PlayReset();						//再生済みがどうかをリセットする(全て)
