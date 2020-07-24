@@ -160,6 +160,7 @@
     <ClCompile Include="Load.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Music.cpp" />
     <ClCompile Include="Play.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Score.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="Load.hpp" />
     <ClInclude Include="main.hpp" />
     <ClInclude Include="Mouse.hpp" />
+    <ClInclude Include="Music.hpp" />
     <ClInclude Include="Play.hpp" />
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="Score.hpp" />

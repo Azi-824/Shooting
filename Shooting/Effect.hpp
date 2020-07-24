@@ -6,7 +6,7 @@
 //################### ヘッダファイル読み込み ######################
 #include "Global.hpp"
 #include "Animation.hpp"
-//#include "Music.hpp"
+#include "Music.hpp"
 
 //###################### マクロ定義：ファイルパス、名前 ######################
 #define EFFECT_DIR				R"(.\MY_EFFECT)"				//エフェクトの画像ファイルの場所
@@ -29,17 +29,18 @@ class Effect
 private:
 
 	Animation* anim;			//アニメーション
+	Music* se;					//効果音
 
 	bool IsFadeout;				//フェードアウト処理を行うか
 	bool IsFadein;				//フェードイン処理を行うか
 
 public:
 
-	Effect(Animation*);	//コンストラクタ
-	Effect();			//コンストラクタ
-	~Effect();			//デストラクタ
+	Effect(Animation*,Music*);	//コンストラクタ
+	Effect();					//コンストラクタ
+	~Effect();					//デストラクタ
 
-	void SetEffect(Animation*);	//エフェクトを設定
+	void SetEffect(Animation*,Music*);	//エフェクトを設定
 
 	void Draw(int, int);	//描画
 	void DrawCenter();		//画面中央に描画

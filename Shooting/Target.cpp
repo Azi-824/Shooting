@@ -39,7 +39,7 @@ void Target::SetInit(int score)
 	rect.right = DrawX + img->GetWidth();	//右X
 	rect.bottom = DrawY + img->GetHeight();	//右Y
 	this->score = score;	//スコア設定
-	effect->SetInit();		//エフェクト初期化
+	effect->SetInit();		//エフェクト
 	time->StartCount();		//計測開始
 }
 

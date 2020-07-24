@@ -37,7 +37,10 @@ Play::~Play()
 	vector<Effect*> v3;
 	tg_effect.swap(v3);
 
-	delete anim;	//anim破棄
+	/*
+	anim,se,はeffect内で破棄
+	effectはtarget内で破棄している
+	*/
 }
 
 //データ読込
@@ -57,7 +60,9 @@ bool Play::DataLoad()
 	anim = new Animation(ANIMATION_DIR, ANIMATION_NAME_EXPLOSION, ANIM_EXPLOSION_ALL_CNT, ANIM_EXPLOSION_YOKO_CNT, ANIM_EXPLOSION_TATE_CNT,
 		ANIM_EXPLOSION_WIDTH, ANIM_EXPLOSION_HEIGHT, ANIM_EXPLOSION_SPEED, false);
 	if (!anim->GetIsLoad()) { return false; }	//読み込み失敗
-	tg_effect.push_back(new Effect(anim));		//エフェクト（爆発）追加
+	se = new Music(MUSIC_DIR_EFFECT, SE_NAME_EFFECT_EXPLOSION);	//爆発音追加
+	if (!se->GetIsLoad()) { return false; }	//読み込み失敗
+	tg_effect.push_back(new Effect(anim,se));		//エフェクト（爆発）追加
 
 	target.push_back(new Toy(tg_img.at(TGNAME_GHOST),tg_effect.at(0)));		//ぬいぐるみ（お化けを追加）
 	target.push_back(new Bomb(tg_img.at(TGNAME_BOMB1), tg_effect.at(0)));	//爆弾1

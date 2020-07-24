@@ -21,6 +21,7 @@ private:
 	vector<Image*> tg_img;		//的の画像
 	vector<Effect*> tg_effect;	//的のエフェクト
 	Animation* anim;	//アニメーション
+	Music* se;			//効果音
 
 public:
 
