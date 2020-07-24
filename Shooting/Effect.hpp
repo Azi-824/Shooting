@@ -5,6 +5,7 @@
 
 //################### ヘッダファイル読み込み ######################
 #include "Global.hpp"
+#include "Animation.hpp"
 //#include "Music.hpp"
 
 //###################### マクロ定義：ファイルパス、名前 ######################
@@ -18,26 +19,7 @@
 
 //###################### マクロ定義 #################################
 
-//********************** サイズ ************************
-#define EFFECT_ATACK_WIDTH		240	//分割幅
-#define EFFECT_ATACK_HEIGHT		240	//分割高さ
-
-
-//********************** 分割数 **************************
-#define EFFECT_ATACK_YOKO_CNT		7	//横分割数
-#define EFFECT_ATACK_TATE_CNT		1	//縦分割数
-
-//************************ 総分割数 **************************
-#define EFFECT_ATACK_ALL_CNT	EFFECT_ATACK_YOKO_CNT * EFFECT_ATACK_TATE_CNT	//総分割数
-
-//************************ 描画速度 ***************************
-#define EFFECT_ATACK_SPEED		0.08
-
 //###################### 列挙型 ##########################
-enum EFFECT_KIND
-{
-	EFFECT_ATACK		//攻撃エフェクト
-};
 
 using std::vector;
 using std::string;
@@ -46,61 +28,32 @@ class Effect
 {
 private:
 
-	vector<int> Handle;					//ハンドル
-	vector<int>::iterator Handle_itr;	//ハンドルのイテレータ
-
-	//Music* Se;					//エフェクト効果音
-
-	int Width;					//幅
-	int Height;					//高さ
-
-	double NextChangeSpeed;		//アニメーションを変更する速さ(秒)
-	int ChangeCnt;						//アニメーションするフレームのカウント
-	int ChangeMaxCnt;			//アニメーションするフレームの最大値
-
-	bool IsAnimeLoop;			//アニメーションはループする？
-	bool IsAnimeStop;			//アニメーションはストップしたか？
-	bool IsDraw;				//描画してよいか
-
-	bool IsDrawEnd;				//描画終了したか
-
-	bool IsLoad;				//読み込めたか？
-	bool IsCreateSe;			//効果音のオブジェクトを作成したか
+	Animation* anim;			//アニメーション
 
 	bool IsFadeout;				//フェードアウト処理を行うか
 	bool IsFadein;				//フェードイン処理を行うか
 
 public:
 
-	//Effect(const char*, const char*, int, int, int, int, int, double, bool,Music*);	//コンストラクタ	
-	Effect(const char*, const char*, int, int, int, int, int, double, bool);	//コンストラクタ	
-	~Effect();					//デストラクタ
+	Effect(Animation*);	//コンストラクタ
+	Effect();			//コンストラクタ
+	~Effect();			//デストラクタ
 
-	int GetWidth();			//幅を取得
-	int GetHeight();			//高さを取得
-
-	bool GetIsLoad(void);		//読み込めた？
-
-	bool GetIsAnimeStop();	//アニメーションはストップしたかを取得
-
-	bool GetIsDrawEnd();		//描画終了したか取得
-
-	void SetIsDrawEnd(bool);	//描画終了したか設定
-
-	void ResetIsAnime();		//アニメーションがストップしたかをリセット
+	void SetEffect(Animation*);	//エフェクトを設定
 
 	void Draw(int, int);	//描画
 	void DrawCenter();		//画面中央に描画
+	void DrawCenter(RECT);	//指定された領域内の中央に描画
 
 	void SetInit();						//初期設定
+
+	bool GetIsEffectEnd();				//エフェクト終了したか取得
+	void Reset();						//リセット
 
 	void SetIsFadeout(bool);			//フェードアウトをするか設定
 	void SetIsFadein(bool);				//フェードインをするか設定
 
-	bool FadeOut(int, int, int, int);		//フェードアウトエフェクト
+	bool FadeOut(int, int, int, int);	//フェードアウトエフェクト
 	bool FadeIn(int, int, int, int);	//フェードインエフェクト
-
-	void SetIsDraw(bool);			//描画してよいか設定
-	bool GetIsDraw();				//描画してよいか取得
 
 };

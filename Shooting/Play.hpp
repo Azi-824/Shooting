@@ -7,7 +7,6 @@
 #include "Scene.hpp"
 #include "Toy.hpp"
 #include "Bomb.hpp"
-#include "Animation.hpp"
 
 //############### マクロ定義 #################
 
@@ -18,8 +17,9 @@ class Play : public Scene	//Sceneクラスを継承
 {
 private:
 
-	vector<Target*> target;	//的
-	vector<Image*> tg_img;	//的の画像
+	vector<Target*> target;		//的
+	vector<Image*> tg_img;		//的の画像
+	vector<Effect*> tg_effect;	//的のエフェクト
 	Animation* anim;	//アニメーション
 
 public:

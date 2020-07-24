@@ -8,9 +8,11 @@
 
 //コンストラクタ
 //引数:Image* : 的の画像
-Toy::Toy(Image* img)
+//引数:Effect* :エフェクト
+Toy::Toy(Image* img,Effect* effect)
 {
-	this->img = img;	//画像
+	this->img = img;		//画像
+	this->effect = effect;	//エフェクト
 	time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//制限時間設定
 }
 
@@ -30,13 +32,16 @@ void Toy::UpDate()
 		time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//制限時間設定
 		time->StartCount();	//計測開始
 	}
+
+	if (GetEventFlg())	//イベントフラグが立っているとき
+	{
+		Event();	//イベント処理
+	}
 }
 
 //クリックされた時の処理
 void Toy::Event()
 {
 	DrawString(100, 300, "ToyのEvent()", COLOR_WHITE);	//テスト用のテキストを描画
-	Score::AddScore(score);	//スコア加算
-	time->StartCount();		//再計測
-	
+	CommonEvent();	//共通のイベント処理
 }

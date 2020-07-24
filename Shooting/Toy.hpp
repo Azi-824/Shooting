@@ -16,8 +16,8 @@ class Toy : public Target	//Targetクラスを継承
 {
 public:
 
-	Toy(Image*);		//コンストラクタ
-	~Toy();				//デストラクタ
+	Toy(Image*,Effect*);		//コンストラクタ
+	~Toy();						//デストラクタ
 
 	void UpDate() override;	//毎回行う処理
 	void Event() override;	//クリックされた時の処理

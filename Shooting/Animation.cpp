@@ -86,6 +86,12 @@ Animation::~Animation()
 
 }
 
+//初期設定
+void Animation::SetInit()
+{
+	GetGraphSize(Handle.front(), &Width, &Height);		//サイズ取得
+}
+
 //幅を取得
 int Animation::GetWidth()
 {
@@ -192,3 +198,44 @@ void Animation::DrawCenter()
 
 }
 
+//指定された領域内の中央に描画
+void Animation::DrawCenter(RECT rect)
+{
+
+	int rect_center_x = rect.left + ((rect.right - rect.left) / 2);	//領域の中央X位置を計算
+	int rect_center_y = rect.top + ((rect.bottom - rect.top) / 2);	//領域の中央Y位置を計算
+	int x = rect_center_x - (Width / 2);				//描画位置Xを計算
+	int y = rect_center_y - (Height / 2);				//描画位置Yを計算
+
+	if (IsDrawEnd == false)	//アニメーションが終わっていなければ
+	{
+		DrawGraph(x, y, *Handle_itr, TRUE);	//イテレータ(ポインタ)を使用して描画
+	}
+
+	if (ChangeCnt == ChangeMaxCnt)	//次の画像を表示する時がきたら
+	{
+		//this->Handle.end()は、最後の要素の１個次のイテレータを返すので、-1している。
+		if (Handle_itr == Handle.end() - 1)	//イテレータ(ポインタ)が最後の要素のときは
+		{
+			//アニメーションをループしないなら
+			if (IsAnimeLoop == false)
+			{
+				IsDrawEnd = true;	//描画終了
+			}
+
+			//次回の描画に備えて、先頭の画像に戻しておく
+			Handle_itr = Handle.begin();	//イテレータ(ポインタ)を要素の最初に戻す
+		}
+		else
+		{
+			++Handle_itr;	//次のイテレータ(ポインタ)(次の画像)に移動する
+		}
+
+		ChangeCnt = 0;	//カウント初期化
+	}
+	else
+	{
+		++ChangeCnt;	//カウントアップ
+	}
+
+}

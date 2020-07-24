@@ -7,9 +7,10 @@
 //########## クラス定義 ############
 
 //コンストラクタ 
-Bomb::Bomb(Image* img)
+Bomb::Bomb(Image* img,Effect* effect)
 {
-	this->img = img;	//画像
+	this->img = img;		//画像
+	this->effect = effect;	//エフェクト
 	time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//制限時間設定
 }
 
@@ -29,11 +30,17 @@ void Bomb::UpDate()
 		time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//制限時間設定
 		time->StartCount();	//計測開始
 	}
+
+	if (GetEventFlg())	//イベントフラグが立っているとき
+	{
+		Event();	//イベント処理
+	}
+
 }
 
 //クリックされた時の処理
 void Bomb::Event()
 {
 	DrawString(100, 300, "BombのEvent()", COLOR_WHITE);	//テスト用のテキストを描画
-	Score::AddScore(score);	//スコア加算
+	CommonEvent();	//共通のイベント
 }

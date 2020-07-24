@@ -30,6 +30,14 @@ Play::~Play()
 	//vectorの解放
 	vector<Image*> v2;
 	tg_img.swap(v2);
+	for (auto e : tg_effect)
+	{
+		delete e;	//tg_effect破棄
+	}
+	vector<Effect*> v3;
+	tg_effect.swap(v3);
+
+	delete anim;	//anim破棄
 }
 
 //データ読込
@@ -43,15 +51,17 @@ bool Play::DataLoad()
 	tg_img.push_back(new Image(IMG_BOMB_DIR, IMG_NAME_BOMB01));	//爆弾1
 	for (auto i : tg_img)
 	{
-		if (!i->GetIsLoad()) { return false; }	
+		if (!i->GetIsLoad()) { return false; }
 	}
-	target.push_back(new Toy(tg_img.at(TGNAME_GHOST)));		//ぬいぐるみ（お化けを追加）
-	target.push_back(new Bomb(tg_img.at(TGNAME_BOMB1)));	//爆弾1
-
 	//アニメーション系
 	anim = new Animation(ANIMATION_DIR, ANIMATION_NAME_EXPLOSION, ANIM_EXPLOSION_ALL_CNT, ANIM_EXPLOSION_YOKO_CNT, ANIM_EXPLOSION_TATE_CNT,
 		ANIM_EXPLOSION_WIDTH, ANIM_EXPLOSION_HEIGHT, ANIM_EXPLOSION_SPEED, false);
 	if (!anim->GetIsLoad()) { return false; }	//読み込み失敗
+	tg_effect.push_back(new Effect(anim));		//エフェクト（爆発）追加
+
+	target.push_back(new Toy(tg_img.at(TGNAME_GHOST),tg_effect.at(0)));		//ぬいぐるみ（お化けを追加）
+	target.push_back(new Bomb(tg_img.at(TGNAME_BOMB1), tg_effect.at(0)));	//爆弾1
+
 
 	return true;
 }
@@ -69,23 +79,6 @@ void Play::SetInit()
 //プレイ画面の処理
 void Play::Run()
 {
-	//****************************** 処理系 ********************************
-	for (auto t : target)
-	{
-		t->UpDate();//更新
-
-		if (t->OnClick())	//クリックされたら
-		{
-			t->Event();		//イベント処理
-		}
-
-	}
-	if (Mouse::OnRightClick())	//右クリックしたら
-	{
-		NowScene = SCENE_END;	//エンド画面へ
-	}
-
-
 	//***************************** 描画系 *********************************
 	back->Draw(GAME_LEFT, GAME_TOP);	//背景描画
 	for (auto t : target)
@@ -93,6 +86,21 @@ void Play::Run()
 		t->Draw();	//的の描画
 	}
 	DrawString(TEST_TEXT_X, TEST_TEXT_Y, PLAY_TEXT, GetColor(255, 255, 255));	//テスト用のテキストを描画
-	anim->DrawCenter();	//アニメーション描画
+
+	//****************************** 処理系 ********************************
+	for (auto t : target)
+	{
+		t->UpDate();//更新
+
+		if (t->OnClick())	//クリックされたら
+		{
+			t->SetEventFlg(true);	//イベントフラグ
+		}
+
+	}
+	if (Mouse::OnRightClick())	//右クリックしたら
+	{
+		NowScene = SCENE_END;	//エンド画面へ
+	}
 
 }

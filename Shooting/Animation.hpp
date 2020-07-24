@@ -59,6 +59,8 @@ public:
 	Animation(const char*, const char*, int, int, int, int, int, double, bool);		//コンストラクタ
 	~Animation();																	//デストラクタ
 
+	void SetInit();			//初期設定
+
 	int GetWidth();			//幅を取得
 	int GetHeight();		//高さを取得
 
@@ -69,6 +71,7 @@ public:
 
 	void Draw(int, int);	//描画
 	void DrawCenter();		//画面中央に描画
+	void DrawCenter(RECT);	//指定された領域内の中央に描画
 
 
 };

@@ -10,19 +10,22 @@
 Target::Target()
 {
 	//メンバー初期化
-	DrawX = 0;			//描画X位置
-	DrawY = 0;			//描画Y位置
-	score = 0;			//スコア
-	img = new Image();	//画像
-	time = new Time();	//時間
-	rect = { 0,0,0,0 };	//領域
+	DrawX = 0;				//描画X位置
+	DrawY = 0;				//描画Y位置
+	score = 0;				//スコア
+	EventFlg = false;		//イベントフラグ
+	img = new Image();		//画像
+	time = new Time();		//時間
+	effect = new Effect();	//エフェクト
+	rect = { 0,0,0,0 };		//領域
 }
 
 //デストラクタ
 Target::~Target()
 {
-	delete img;	//img破棄
-	delete time;//time破棄
+	delete img;		//img破棄
+	delete time;	//time破棄
+	delete effect;	//effect破棄
 }
 
 //初期設定
@@ -36,7 +39,22 @@ void Target::SetInit(int score)
 	rect.right = DrawX + img->GetWidth();	//右X
 	rect.bottom = DrawY + img->GetHeight();	//右Y
 	this->score = score;	//スコア設定
+	effect->SetInit();		//エフェクト初期化
 	time->StartCount();		//計測開始
+}
+
+//共通のイベント処理
+void Target::CommonEvent()
+{
+	Score::AddScore(score);	//スコア加算
+	effect->DrawCenter(rect);	//エフェクト描画
+	if (effect->GetIsEffectEnd())	//エフェクト描画が終わったら
+	{
+		effect->Reset();			//エフェクトリセット
+		img->SetIsDraw(false);		//的非表示
+		SetEventFlg(false);			//イベント終了
+	}
+	time->StartCount();		//再計測
 }
 
 //描画位置生成
@@ -64,4 +82,16 @@ RECT Target::GetRect()
 bool Target::OnClick()
 {
 	return Mouse::OnLeftClick(rect);
+}
+
+//イベントフラグ取得
+bool Target::GetEventFlg()
+{
+	return EventFlg;
+}
+
+//イベントフラグ設定
+void Target::SetEventFlg(bool flg)
+{
+	EventFlg = flg;
 }
