@@ -137,7 +137,7 @@ void Music::PlayOne(bool check)
 
 
 //Ä¶Ï‚İ‚©‚Ç‚¤‚©‚ğƒŠƒZƒbƒg‚·‚é
-void Music::PlayReset()
+void Music::Reset()
 {
 	IsPlayed = false;	//Ä¶Ï‚İ‚¶‚á‚È‚¢
 }

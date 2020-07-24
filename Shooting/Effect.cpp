@@ -87,7 +87,7 @@ bool Effect::GetIsEffectEnd()
 void Effect::Reset()
 {
 	anim->Reset();	//アニメーションリセット
-	se->PlayReset();//効果音リセット
+	se->Reset();//効果音リセット
 }
 
 //フェードアウトをするか設定

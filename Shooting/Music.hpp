@@ -62,8 +62,8 @@ public:
 	void Play(bool check = true);			//音を再生する
 	void PlayOne(bool check = true);		//音を再生する(1回だけ)
 
-	void PlayReset();						//再生済みがどうかをリセットする(全て)
+	void Reset();							//再生済みがどうかをリセットする
 
-	void Stop();							//音を止める(全て)
+	void Stop();							//音を止める
 
 };
