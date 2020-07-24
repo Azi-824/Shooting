@@ -84,17 +84,15 @@ void Play::SetInit()
 //プレイ画面の処理
 void Play::Run()
 {
-	//***************************** 描画系 *********************************
+
 	back->Draw(GAME_LEFT, GAME_TOP);	//背景描画
+	DrawString(TEST_TEXT_X, TEST_TEXT_Y, PLAY_TEXT, GetColor(255, 255, 255));	//テスト用のテキストを描画
+
+	//的関係
 	for (auto t : target)
 	{
 		t->Draw();	//的の描画
-	}
-	DrawString(TEST_TEXT_X, TEST_TEXT_Y, PLAY_TEXT, GetColor(255, 255, 255));	//テスト用のテキストを描画
 
-	//****************************** 処理系 ********************************
-	for (auto t : target)
-	{
 		t->UpDate();//更新
 
 		if (t->OnClick())	//クリックされたら
@@ -103,6 +101,7 @@ void Play::Run()
 		}
 
 	}
+
 	if (Mouse::OnRightClick())	//右クリックしたら
 	{
 		NowScene = SCENE_END;	//エンド画面へ
