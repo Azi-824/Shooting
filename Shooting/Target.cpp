@@ -64,6 +64,12 @@ void Target::CreateDrawPos()
 	int max_y = GAME_HEIGHT - img->GetHeight();	//描画位置Yの最大値を設定
 	DrawX = GetRand(max_x);	//描画X位置設定
 	DrawY = GetRand(max_y);	//描画Y位置設定
+
+	//領域の設定
+	rect.left = DrawX;						//左X
+	rect.top = DrawY;						//左Y
+	rect.right = DrawX + img->GetWidth();	//右X
+	rect.bottom = DrawY + img->GetHeight();	//右Y
 }
 
 //描画
@@ -72,15 +78,12 @@ void Target::Draw()
 	img->Draw(DrawX, DrawY);	//描画
 }
 
-//領域取得
-RECT Target::GetRect()
-{
-	return rect;
-}
-
 //クリックされたか
 bool Target::OnClick()
 {
+	if (!img->GetIsDraw())	//描画していない時は
+		return false;		//クリックなし
+
 	return Mouse::OnLeftClick(rect);
 }
 

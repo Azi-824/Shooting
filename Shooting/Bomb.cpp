@@ -27,6 +27,7 @@ void Bomb::UpDate()
 		•`‰æ‚µ‚Ä‚¢‚È‚¢Žž‚ÍAŽŸ‚Ì•`‰æ‚Ü‚Å‚ÌŽžŠÔ‚ª‰ß‚¬‚½‚Æ‚«‚Ì‚½‚ßAÄ•`‰æ‚·‚é
 		*/
 		img->SetIsDraw(!img->GetIsDraw());	//Œ»Ý‚Ì•`‰æó‘Ô‚Ì‹t‚ðÝ’è
+		CreateDrawPos();					//•`‰æˆÊ’uÄ¶¬
 		time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//§ŒÀŽžŠÔÝ’è
 		time->StartCount();	//Œv‘ªŠJŽn
 	}

@@ -31,8 +31,6 @@ private:
 	int DrawY;		//描画Y位置
 	bool EventFlg;	//イベントフラグ
 
-	void CreateDrawPos();	//描画位置を生成
-
 protected:
 
 	Image* img;		//画像
@@ -42,6 +40,7 @@ protected:
 	int score;		//スコア
 
 	void CommonEvent();	//共通のイベント処理
+	void CreateDrawPos();	//描画位置を生成
 
 public:
 
@@ -52,7 +51,6 @@ public:
 	virtual void SetInit(int);	//初期設定
 	virtual void Event() = 0;	//的をクリックしたときのイベント
 	bool OnClick();				//クリックしたか
-	RECT GetRect();				//領域の取得
 	void Draw();				//描画
 	bool GetEventFlg();			//イベントフラグ取得
 	void SetEventFlg(bool);		//イベントフラグ設定
