@@ -126,6 +126,11 @@ void Play::Run()
 			t->SetEventFlg(true);	//イベントフラグ
 		}
 
+		if (t->GetEventFlg())	//イベントフラグが立っていたら
+		{
+			t->Event(limit);	//イベント処理
+		}
+
 	}
 
 	//時間系

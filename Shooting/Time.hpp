@@ -7,9 +7,6 @@
 #include "Global.hpp"
 
 //############## マクロ定義 ##############
-#define GAME_LIMIT_DRAW_X	500		//ゲームの制限時間描画X位置
-#define GAME_LIMIT_DRAW_Y	30		//ゲームの制限時間描画Y位置
-#define GAME_LIMIT_TIME		60		//ゲームの制限時間
 
 //############## クラス定義 ##############
 class Time
@@ -19,7 +16,8 @@ private:
 
 	int StartTime;						//計測開始時間
 	int ElapsedTime;					//経過時間
-	int LimitTime;						//制限時間
+	int NowLimit;						//残りの制限時間
+	int Limit;							//制限時間
 	int LimitInit;						//制限時間の初期値
 
 public:
@@ -35,7 +33,7 @@ public:
 
 	bool GetIsLimit();					//制限時間が過ぎたか
 
-	void MinusLimitTime(int);			//残りの制限時間をマイナスする
+	void Add(int);						//渡された値の分時間を加算する
 
 };
 

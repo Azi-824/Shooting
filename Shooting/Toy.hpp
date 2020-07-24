@@ -19,7 +19,6 @@ public:
 	Toy(Image*,Effect*);		//コンストラクタ
 	~Toy();						//デストラクタ
 
-	void UpDate() override;	//毎回行う処理
-	void Event() override;	//クリックされた時の処理
+	void Event(Time*) override;	//クリックされた時の処理
 
 };

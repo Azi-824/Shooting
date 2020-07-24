@@ -57,25 +57,6 @@ void Target::UpDate()
 		time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//制限時間設定
 		time->StartCount();	//計測開始
 	}
-
-	if (GetEventFlg())	//イベントフラグが立っているとき
-	{
-		Event();	//イベント処理
-	}
-}
-
-//共通のイベント処理
-void Target::CommonEvent()
-{
-	Score::AddScore(score);	//スコア加算
-	effect->DrawCenter(rect);	//エフェクト描画
-	if (effect->GetIsEffectEnd())	//エフェクト描画が終わったら
-	{
-		effect->Reset();			//エフェクトリセット
-		img->SetIsDraw(false);		//的非表示
-		SetEventFlg(false);			//イベント終了
-	}
-	time->StartCount();		//再計測
 }
 
 //描画位置生成

@@ -10,6 +10,9 @@
 #include "Item.hpp"
 
 //############### マクロ定義 #################
+#define GAME_LIMIT_DRAW_X	500		//ゲームの制限時間描画X位置
+#define GAME_LIMIT_DRAW_Y	30		//ゲームの制限時間描画Y位置
+#define GAME_LIMIT_TIME		60		//ゲームの制限時間
 
 using std::vector;
 

@@ -40,7 +40,6 @@ protected:
 	Effect* effect;	//エフェクト
 	int score;		//スコア
 
-	void CommonEvent();	//共通のイベント処理
 	void CreateDrawPos();	//描画位置を生成
 
 public:
@@ -50,7 +49,7 @@ public:
 
 	virtual void UpDate();		//毎回行う処理
 	virtual void SetInit(int);	//初期設定
-	virtual void Event() = 0;	//的をクリックしたときのイベント
+	virtual void Event(Time*) = 0;	//的をクリックしたときのイベント
 	bool OnClick();				//クリックしたか
 	void Draw();				//描画
 	bool GetEventFlg();			//イベントフラグ取得

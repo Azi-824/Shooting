@@ -11,6 +11,8 @@
 
 #define IMG_NAME_BOMB	R"(\bomb01.png)"	//爆弾01の名前
 
+#define BOMB_TIME_VALUE		-10	//減らす時間
+
 //########### クラス定義 #############
 class Bomb : public Target	//Targetを継承
 {
@@ -19,7 +21,6 @@ public:
 	Bomb(Image*,Effect*);	//コンストラクタ
 	~Bomb();				//デストラクタ
 
-	void UpDate() override;	//毎回行う処理
-	void Event() override;	//クリックされた時の処理
+	void Event(Time*) override;	//クリックされた時の処理
 
 };

@@ -11,6 +11,8 @@
 
 #define IMG_NAME_ITEM	R"(\item.png)"		//アイテムの名前
 
+#define ITEM_TIME_VALUE	5	//増やす時間
+
 //########### クラス定義 ##############
 class Item : public Target	//Targetを継承
 {
@@ -20,7 +22,6 @@ public:
 	Item(Image*, Effect*);		//コンストラクタ
 	~Item();					//デストラクタ
 
-	void UpDate() override;	//毎回行う処理
-	void Event() override;	//クリックされた時の処理
+	void Event(Time*) override;	//クリックされた時の処理
 
 };

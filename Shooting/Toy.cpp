@@ -19,30 +19,18 @@ Toy::Toy(Image* img,Effect* effect)
 //デストラクタ
 Toy::~Toy(){}
 
-//毎回行う処理
-void Toy::UpDate()
-{
-	if (time->GetIsLimit())	//制限時間を超えたか
-	{
-		/*
-		描画しているときは、描画を消す
-		描画していない時は、次の描画までの時間が過ぎたときのため、再描画する
-		*/
-		img->SetIsDraw(!img->GetIsDraw());	//現在の描画状態の逆を設定
-		CreateDrawPos();					//描画位置再生成
-		time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//制限時間設定
-		time->StartCount();	//計測開始
-	}
-
-	if (GetEventFlg())	//イベントフラグが立っているとき
-	{
-		Event();	//イベント処理
-	}
-}
-
 //クリックされた時の処理
-void Toy::Event()
+void Toy::Event(Time* limit)
 {
 	DrawString(100, 300, "ToyのEvent()", COLOR_WHITE);	//テスト用のテキストを描画
-	CommonEvent();	//共通のイベント処理
+
+	Score::AddScore(score);			//スコア加算
+	effect->DrawCenter(rect);		//エフェクト描画
+	if (effect->GetIsEffectEnd())	//エフェクト描画が終わったら
+	{
+		effect->Reset();			//エフェクトリセット
+		img->SetIsDraw(false);		//的非表示
+		SetEventFlg(false);			//イベント終了
+	}
+	time->StartCount();		//再計測
 }

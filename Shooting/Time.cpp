@@ -12,7 +12,8 @@ Time::Time()
 	//メンバー変数初期化
 	StartTime = 0;		//計測開始時間
 	ElapsedTime = 0;	//経過時間
-	LimitTime = 0;		//制限時間
+	NowLimit = 0;		//残りの制限時間
+	Limit = 0;			//制限時間
 	LimitInit = 0;		//制限時間の初期値
 }
 
@@ -23,8 +24,9 @@ Time::Time(int limit)
 	//メンバー変数初期化
 	StartTime = 0;		//計測開始時間
 	ElapsedTime = 0;	//経過時間
-	LimitTime = limit;	//制限時間を設定
-	LimitInit = LimitTime;	//制限時間の初期値
+	NowLimit = limit;	//残りの制限時間
+	Limit = limit;		//制限時間
+	LimitInit = NowLimit;	//制限時間の初期値
 }
 
 //デストラクタ
@@ -33,7 +35,7 @@ Time::~Time() {}
 //制限時間設定
 void Time::SetLimit(int limit)
 {
-	LimitTime = limit;
+	NowLimit = limit;
 	LimitInit = limit;
 }
 
@@ -42,6 +44,9 @@ void Time::StartCount()
 {
 	//ミリ秒単位で取得するため、1/1000倍して、秒単位に変換する
 	StartTime = GetNowCount() / 1000;	//計測開始時間設定
+	ElapsedTime = (GetNowCount() / 1000) - StartTime;	//経過時間を設定
+	Limit = LimitInit;	//制限時間初期化
+	NowLimit = Limit;	//残りの制限時間設定
 }
 
 //更新
@@ -49,7 +54,7 @@ void Time::UpDate()
 {
 	//ミリ秒単位で取得するため、1/1000倍して、秒単位に変換する
 	ElapsedTime = (GetNowCount() / 1000) - StartTime;	//経過時間を更新
-	LimitTime = LimitInit - ElapsedTime;				//残りの時間を更新
+	NowLimit = Limit - ElapsedTime;						//残りの時間を更新
 }
 
 //制限時間描画
@@ -59,7 +64,7 @@ void Time::Draw(int x, int y)
 {
 	UpDate();	//更新
 	//DrawFormatStringToHandle(x, y, COLOR_WHITE, NowFontHandle ,"%d", LimitTime);	//制限時間を描画
-	DrawFormatString(x, y, COLOR_WHITE, "%d", LimitTime);	//制限時間描画
+	DrawFormatString(x, y, COLOR_WHITE, "%d", NowLimit);	//制限時間描画
 }
 
 //制限時間が過ぎたか取得
@@ -67,12 +72,12 @@ void Time::Draw(int x, int y)
 bool Time::GetIsLimit()
 {
 	UpDate();	//更新
-	return LimitTime <= 0 ? true : false;
+	return NowLimit <= 0 ? true : false;
 }
 
-//残りの制限時間をマイナスする
-//引数：int：減らす時間（秒）
-void Time::MinusLimitTime(int value)
+//渡された値の分時間を加算する
+//引数：int：加える時間（秒）
+void Time::Add(int value)
 {
-	LimitTime -= value;	//制限時間を減らす
+	Limit += value;	//時間を加える
 }
