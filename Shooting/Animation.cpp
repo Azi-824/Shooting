@@ -31,15 +31,10 @@ Animation::Animation(const char* dir, const char* name, int SplitNumALL, int Spr
 	LoadfilePath += dir;
 	LoadfilePath += name;
 
-	vector<int> work(SplitNumALL);	//分割読み込みで得たハンドルを格納する配列を総分割数で初期化
-	/*
-	後で修正を試す
-	Handle.resize(SplitNumAll)
-	*/
+	Handle.resize(SplitNumALL);
 
 	//画像を分割して読み込み
-	LoadDivGraph(LoadfilePath.c_str(), SplitNumALL, SpritNumX, SplitNumY, SplitWidth, SplitHeight, &work.front());
-	Handle = work;
+	LoadDivGraph(LoadfilePath.c_str(), SplitNumALL, SpritNumX, SplitNumY, SplitWidth, SplitHeight, &Handle.front());
 
 	if (Handle.front() == -1)	//画像が読み込めなかったとき
 	{
@@ -66,12 +61,6 @@ Animation::Animation(const char* dir, const char* name, int SplitNumALL, int Spr
 	Handle_itr = Handle.begin();	//先頭要素をイテレータに設定
 
 	IsLoad = true;		//読み込めた
-
-	//vectorのメモリ解放を行う
-	vector<int> v;			//空のvectorを作成する
-	work.swap(v);			//空と中身を入れ替える
-
-	return;
 
 }
 
