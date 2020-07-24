@@ -55,7 +55,7 @@ void Time::UpDate()
 //制限時間描画
 //引数：int：描画X位置
 //引数：int：描画Y位置
-void Time::DrawLimitTime(int x, int y)
+void Time::Draw(int x, int y)
 {
 	UpDate();	//更新
 	//DrawFormatStringToHandle(x, y, COLOR_WHITE, NowFontHandle ,"%d", LimitTime);	//制限時間を描画

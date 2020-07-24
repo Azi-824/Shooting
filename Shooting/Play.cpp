@@ -9,7 +9,7 @@
 //コンストラクタ
 Play::Play()
 {
-
+	StartFlg = false;
 }
 
 //デストラクタ
@@ -77,6 +77,8 @@ bool Play::DataLoad()
 	target.push_back(new Toy(tg_img.at(TGNAME_GHOST),tg_effect.at(EF_NAME_SHOT)));			//ぬいぐるみ（お化けを追加）
 	target.push_back(new Bomb(tg_img.at(TGNAME_BOMB1), tg_effect.at(EF_NAME_EXPLOSION)));	//爆弾1
 
+	//時間系
+	limit = new Time(GAME_LIMIT_TIME);	//ゲームの制限時間を管理するオブジェクトを生成
 
 	return true;
 }
@@ -95,6 +97,8 @@ void Play::SetInit()
 void Play::Run()
 {
 
+	Start();	//シーンが変わったら、一回だけ行う処理
+	
 	back->Draw(GAME_LEFT, GAME_TOP);	//背景描画
 	DrawString(TEST_TEXT_X, TEST_TEXT_Y, PLAY_TEXT, GetColor(255, 255, 255));	//テスト用のテキストを描画
 
@@ -112,9 +116,29 @@ void Play::Run()
 
 	}
 
-	if (Mouse::OnRightClick())	//右クリックしたら
+	//時間系
+	limit->UpDate();									//更新
+	limit->Draw(GAME_LIMIT_DRAW_X, GAME_LIMIT_DRAW_Y);	//描画
+	if (limit->GetIsLimit())//制限時間を過ぎたら
 	{
+		StartFlg = false;
 		NowScene = SCENE_END;	//エンド画面へ
 	}
 
+	if (Mouse::OnRightClick())	//右クリックしたら
+	{
+		StartFlg = false;
+		NowScene = SCENE_END;	//エンド画面へ
+	}
+
+}
+
+//シーンが変わって1回目だけ行う処理
+void Play::Start()
+{
+	if (!StartFlg)
+	{
+		limit->StartCount();	//制限時間のカウントスタート
+		StartFlg = true;
+	}
 }

@@ -22,6 +22,9 @@ private:
 	vector<Effect*> tg_effect;	//的のエフェクト
 	vector<Animation*> eff_anim;//アニメーション
 	vector<Music*> eff_se;		//効果音
+	Time* limit;				//制限時間
+
+	bool StartFlg;	//Start()を行ったか
 
 public:
 
@@ -31,5 +34,6 @@ public:
 	void SetInit() override;	//初期設定
 	bool DataLoad() override;	//データ読込
 	void Run() override;	//プレイ画面の処理
+	void Start();			//シーンが変わって一回目だけ行う処理
 
 };
