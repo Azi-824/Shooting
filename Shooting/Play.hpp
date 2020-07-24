@@ -7,6 +7,7 @@
 #include "Scene.hpp"
 #include "Toy.hpp"
 #include "Bomb.hpp"
+#include "Animation.hpp"
 
 //############### マクロ定義 #################
 
@@ -19,6 +20,7 @@ private:
 
 	vector<Target*> target;	//的
 	vector<Image*> tg_img;	//的の画像
+	Animation* anim;	//アニメーション
 
 public:
 

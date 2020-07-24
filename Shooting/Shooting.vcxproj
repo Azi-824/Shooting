@@ -151,7 +151,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Bomb.cpp" />
+    <ClCompile Include="Effect.cpp" />
     <ClCompile Include="End.cpp" />
     <ClCompile Include="Fps.cpp" />
     <ClCompile Include="Image.cpp" />
@@ -167,7 +169,9 @@
     <ClCompile Include="Toy.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.hpp" />
     <ClInclude Include="Bomb.hpp" />
+    <ClInclude Include="Effect.hpp" />
     <ClInclude Include="End.hpp" />
     <ClInclude Include="Fps.hpp" />
     <ClInclude Include="Global.hpp" />

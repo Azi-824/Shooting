@@ -48,6 +48,11 @@ bool Play::DataLoad()
 	target.push_back(new Toy(tg_img.at(TGNAME_GHOST)));		//ぬいぐるみ（お化けを追加）
 	target.push_back(new Bomb(tg_img.at(TGNAME_BOMB1)));	//爆弾1
 
+	//アニメーション系
+	anim = new Animation(ANIMATION_DIR, ANIMATION_NAME_EXPLOSION, ANIM_EXPLOSION_ALL_CNT, ANIM_EXPLOSION_YOKO_CNT, ANIM_EXPLOSION_TATE_CNT,
+		ANIM_EXPLOSION_WIDTH, ANIM_EXPLOSION_HEIGHT, ANIM_EXPLOSION_SPEED, false);
+	if (!anim->GetIsLoad()) { return false; }	//読み込み失敗
+
 	return true;
 }
 
@@ -88,5 +93,6 @@ void Play::Run()
 		t->Draw();	//的の描画
 	}
 	DrawString(TEST_TEXT_X, TEST_TEXT_Y, PLAY_TEXT, GetColor(255, 255, 255));	//テスト用のテキストを描画
+	anim->DrawCenter();	//アニメーション描画
 
 }
