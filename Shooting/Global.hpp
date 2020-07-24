@@ -5,6 +5,7 @@
 
 //################## ヘッダファイル読み込み ##################
 #include "DxLib.h"
+#include "Mouse.hpp"
 #include <vector>
 #include <string>
 

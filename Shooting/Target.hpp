@@ -46,6 +46,7 @@ public:
 	virtual void UpDate() = 0;	//毎回行う処理
 	virtual void SetInit(int);	//初期設定
 	virtual void Event() = 0;	//的をクリックしたときのイベント
+	bool OnClick();				//クリックしたか
 	RECT GetRect();				//領域の取得
 	void Draw();				//描画
 

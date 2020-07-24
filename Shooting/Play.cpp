@@ -69,10 +69,11 @@ void Play::Run()
 	{
 		t->UpDate();//更新
 
-		if (Mouse::OnLeftClick(t->GetRect()))	//的をクリックしたら
+		if (t->OnClick())	//クリックされたら
 		{
-			t->Event();	//イベント処理
+			t->Event();		//イベント処理
 		}
+
 	}
 	if (Mouse::OnRightClick())	//右クリックしたら
 	{

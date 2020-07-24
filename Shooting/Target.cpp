@@ -59,3 +59,9 @@ RECT Target::GetRect()
 {
 	return rect;
 }
+
+//ƒNƒŠƒbƒN‚³‚ê‚½‚©
+bool Target::OnClick()
+{
+	return Mouse::OnLeftClick(rect);
+}
