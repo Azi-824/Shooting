@@ -14,7 +14,7 @@
 #define MUSIC_DIR_EFFECT			R"(.\Music\Effect)"		//エフェクトのファイル名
 
 #define SE_NAME_EFFECT_EXPLOSION	R"(\explosion.mp3)"		//爆発エフェクトの効果音
-
+#define SE_NAME_EFFECT_SHOT			R"(\shot.mp3)"			//銃撃エフェクトの効果音
 
 //##################### マクロ定義：エラーメッセージ ######################
 #define MUSIC_ERROR_TITLE "MUSIC_ERROR"					//エラータイトル
@@ -24,10 +24,6 @@
 #define VOLUME_MAX		255	//音量の最大値
 
 //##################### 列挙型 #########################
-enum SE_EFFECT
-{
-	SE_EFFECT_EXPLOSION		//爆発エフェクトの効果音
-};
 
 using std::string;
 

@@ -57,15 +57,25 @@ bool Play::DataLoad()
 		if (!i->GetIsLoad()) { return false; }
 	}
 	//アニメーション系
-	anim = new Animation(ANIMATION_DIR, ANIMATION_NAME_EXPLOSION, ANIM_EXPLOSION_ALL_CNT, ANIM_EXPLOSION_YOKO_CNT, ANIM_EXPLOSION_TATE_CNT,
-		ANIM_EXPLOSION_WIDTH, ANIM_EXPLOSION_HEIGHT, ANIM_EXPLOSION_SPEED, false);
-	if (!anim->GetIsLoad()) { return false; }	//読み込み失敗
-	se = new Music(MUSIC_DIR_EFFECT, SE_NAME_EFFECT_EXPLOSION);	//爆発音追加
-	if (!se->GetIsLoad()) { return false; }	//読み込み失敗
-	tg_effect.push_back(new Effect(anim,se));		//エフェクト（爆発）追加
+	eff_anim.push_back(new Animation(ANIM_DIR, ANIM_NAME_SHOT, ANIM_SHOT_ALL_CNT, ANIM_SHOT_YOKO_CNT, ANIM_SHOT_TATE_CNT,
+		ANIM_SHOT_WIDTH, ANIM_SHOT_HEIGHT, ANIM_SHOT_SPEED, false));	//銃撃アニメーション
+	eff_anim.push_back(new Animation(ANIM_DIR, ANIM_NAME_EXPLOSION, ANIM_EXPLOSION_ALL_CNT, ANIM_EXPLOSION_YOKO_CNT, ANIM_EXPLOSION_TATE_CNT,
+		ANIM_EXPLOSION_WIDTH, ANIM_EXPLOSION_HEIGHT, ANIM_EXPLOSION_SPEED, false));	//爆発アニメーション
+	for (auto a : eff_anim)
+	{
+		if (!a->GetIsLoad()) { return false; }	//読み込み失敗
+	}
+	eff_se.push_back(new Music(MUSIC_DIR_EFFECT, SE_NAME_EFFECT_SHOT));			//銃撃音追加
+	eff_se.push_back(new Music(MUSIC_DIR_EFFECT, SE_NAME_EFFECT_EXPLOSION));	//爆発音追加
+	for (auto s : eff_se)
+	{
+		if (!s->GetIsLoad()) { return false; }	//読み込み失敗
+	}
+	tg_effect.push_back(new Effect(eff_anim.at(EF_NAME_SHOT),eff_se.at(EF_NAME_SHOT)));				//エフェクト（銃撃）追加
+	tg_effect.push_back(new Effect(eff_anim.at(EF_NAME_EXPLOSION), eff_se.at(EF_NAME_EXPLOSION)));	//エフェクト（爆発）追加
 
-	target.push_back(new Toy(tg_img.at(TGNAME_GHOST),tg_effect.at(0)));		//ぬいぐるみ（お化けを追加）
-	target.push_back(new Bomb(tg_img.at(TGNAME_BOMB1), tg_effect.at(0)));	//爆弾1
+	target.push_back(new Toy(tg_img.at(TGNAME_GHOST),tg_effect.at(EF_NAME_SHOT)));			//ぬいぐるみ（お化けを追加）
+	target.push_back(new Bomb(tg_img.at(TGNAME_BOMB1), tg_effect.at(EF_NAME_EXPLOSION)));	//爆弾1
 
 
 	return true;
