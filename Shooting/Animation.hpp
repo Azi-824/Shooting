@@ -11,6 +11,7 @@
 
 #define ANIM_NAME_EXPLOSION		R"(\explosion.png)"		//爆発アニメーションの画像の名前
 #define ANIM_NAME_SHOT			R"(\shot.png)"			//銃撃アニメーションの画像の名前
+#define ANIM_NAME_ITEM			R"(\item.png)"			//アイテムアニメーションの画像の名前
 
 //###################### マクロ定義：エラーメッセージ ########################
 #define ANIMATION_ERROR_TTILE	"ANIMATION_ERROR"						//エラータイトル
@@ -22,6 +23,8 @@
 #define ANIM_EXPLOSION_HEIGHT		240	//分割高さ
 #define ANIM_SHOT_WIDTH				240	//分割幅
 #define ANIM_SHOT_HEIGHT			240	//分割高さ
+#define ANIM_ITEM_WIDTH				240	//分割幅
+#define ANIM_ITEM_HEIGHT			240	//分割高さ
 
 
 //********************** 分割数 **************************
@@ -29,14 +32,18 @@
 #define ANIM_EXPLOSION_TATE_CNT		1	//縦分割数
 #define ANIM_SHOT_YOKO_CNT			5	//横分割数
 #define ANIM_SHOT_TATE_CNT			2	//縦分割数
+#define ANIM_ITEM_YOKO_CNT			9	//横分割数
+#define ANIM_ITEM_TATE_CNT			1	//縦分割数
 
 //************************ 総分割数 **************************
 #define ANIM_EXPLOSION_ALL_CNT	ANIM_EXPLOSION_YOKO_CNT * ANIM_EXPLOSION_TATE_CNT	//総分割数
 #define ANIM_SHOT_ALL_CNT	6														//総分割数
+#define ANIM_ITEM_ALL_CNT	ANIM_ITEM_YOKO_CNT * ANIM_ITEM_TATE_CNT					//総分割数
 
 //************************ 描画速度 ***************************
 #define ANIM_EXPLOSION_SPEED		0.08
 #define ANIM_SHOT_SPEED				0.08
+#define ANIM_ITEM_SPEED				0.08
 
 using std::vector;
 using std::string;

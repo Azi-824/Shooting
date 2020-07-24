@@ -17,8 +17,9 @@
 //############### 列挙型 ####################
 enum TARGET_NAME
 {
-	TGNAME_GHOST,	//お化け
-	TGNAME_BOMB1	//爆弾1
+	TG_NAME_GHOST,	//お化け
+	TG_NAME_BOMB1,	//爆弾1
+	TG_NAME_ITEM	//アイテム
 };
 
 //############### クラス定義 ####################
@@ -47,7 +48,7 @@ public:
 	Target();		//コンストラクタ
 	~Target();		//デストラクタ
 
-	virtual void UpDate() = 0;	//毎回行う処理
+	virtual void UpDate();		//毎回行う処理
 	virtual void SetInit(int);	//初期設定
 	virtual void Event() = 0;	//的をクリックしたときのイベント
 	bool OnClick();				//クリックしたか

@@ -15,6 +15,7 @@
 
 #define SE_NAME_EFFECT_EXPLOSION	R"(\explosion.mp3)"		//爆発エフェクトの効果音
 #define SE_NAME_EFFECT_SHOT			R"(\shot.mp3)"			//銃撃エフェクトの効果音
+#define SE_NAME_EFFECT_ITEM			R"(\item.wav)"			//アイテムエフェクトの効果音
 
 //##################### マクロ定義：エラーメッセージ ######################
 #define MUSIC_ERROR_TITLE "MUSIC_ERROR"					//エラータイトル

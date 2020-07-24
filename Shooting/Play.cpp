@@ -50,8 +50,10 @@ bool Play::DataLoad()
 	if (!back->Load(IMG_DIR_BACK, IMG_NAME_PLAY)) { return false; }	//背景画像読み込み
 
 	//的関係
-	tg_img.push_back(new Image(IMG_TOY_DIR, IMG_NAME_TOY01));	//ぬいぐるみ（お化けを追加）
-	tg_img.push_back(new Image(IMG_BOMB_DIR, IMG_NAME_BOMB01));	//爆弾1
+	tg_img.push_back(new Image(IMG_TOY_DIR, IMG_NAME_TOY));		//ぬいぐるみ（お化けを追加）
+	tg_img.push_back(new Image(IMG_BOMB_DIR, IMG_NAME_BOMB));	//爆弾1
+	tg_img.push_back(new Image(IMG_ITEM_DIR, IMG_NAME_ITEM));	//アイテム
+
 	for (auto i : tg_img)
 	{
 		if (!i->GetIsLoad()) { return false; }
@@ -61,21 +63,31 @@ bool Play::DataLoad()
 		ANIM_SHOT_WIDTH, ANIM_SHOT_HEIGHT, ANIM_SHOT_SPEED, false));	//銃撃アニメーション
 	eff_anim.push_back(new Animation(ANIM_DIR, ANIM_NAME_EXPLOSION, ANIM_EXPLOSION_ALL_CNT, ANIM_EXPLOSION_YOKO_CNT, ANIM_EXPLOSION_TATE_CNT,
 		ANIM_EXPLOSION_WIDTH, ANIM_EXPLOSION_HEIGHT, ANIM_EXPLOSION_SPEED, false));	//爆発アニメーション
+	eff_anim.push_back(new Animation(ANIM_DIR, ANIM_NAME_ITEM, ANIM_ITEM_ALL_CNT, ANIM_ITEM_YOKO_CNT, ANIM_ITEM_TATE_CNT,
+		ANIM_ITEM_WIDTH, ANIM_ITEM_HEIGHT, ANIM_ITEM_SPEED, false));	//アイテムアニメーション
 	for (auto a : eff_anim)
 	{
 		if (!a->GetIsLoad()) { return false; }	//読み込み失敗
 	}
+
+	//効果音
 	eff_se.push_back(new Music(MUSIC_DIR_EFFECT, SE_NAME_EFFECT_SHOT));			//銃撃音追加
 	eff_se.push_back(new Music(MUSIC_DIR_EFFECT, SE_NAME_EFFECT_EXPLOSION));	//爆発音追加
+	eff_se.push_back(new Music(MUSIC_DIR_EFFECT, SE_NAME_EFFECT_ITEM));			//アイテム音追加
 	for (auto s : eff_se)
 	{
 		if (!s->GetIsLoad()) { return false; }	//読み込み失敗
 	}
+
+	//エフェクト
 	tg_effect.push_back(new Effect(eff_anim.at(EF_NAME_SHOT),eff_se.at(EF_NAME_SHOT)));				//エフェクト（銃撃）追加
 	tg_effect.push_back(new Effect(eff_anim.at(EF_NAME_EXPLOSION), eff_se.at(EF_NAME_EXPLOSION)));	//エフェクト（爆発）追加
+	tg_effect.push_back(new Effect(eff_anim.at(EF_NAME_ITEM), eff_se.at(EF_NAME_ITEM)));			//エフェクト（アイテム）追加
 
-	target.push_back(new Toy(tg_img.at(TGNAME_GHOST),tg_effect.at(EF_NAME_SHOT)));			//ぬいぐるみ（お化けを追加）
-	target.push_back(new Bomb(tg_img.at(TGNAME_BOMB1), tg_effect.at(EF_NAME_EXPLOSION)));	//爆弾1
+	//的
+	target.push_back(new Toy(tg_img.at(TG_NAME_GHOST),tg_effect.at(EF_NAME_SHOT)));			//ぬいぐるみ（お化けを追加）
+	target.push_back(new Bomb(tg_img.at(TG_NAME_BOMB1), tg_effect.at(EF_NAME_EXPLOSION)));	//爆弾1
+	target.push_back(new Item(tg_img.at(TG_NAME_ITEM), tg_effect.at(EF_NAME_ITEM)));		//アイテム
 
 	//時間系
 	limit = new Time(GAME_LIMIT_TIME);	//ゲームの制限時間を管理するオブジェクトを生成

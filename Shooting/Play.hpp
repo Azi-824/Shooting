@@ -7,6 +7,7 @@
 #include "Scene.hpp"
 #include "Toy.hpp"
 #include "Bomb.hpp"
+#include "Item.hpp"
 
 //############### É}ÉNÉçíËã` #################
 

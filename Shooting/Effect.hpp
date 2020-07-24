@@ -14,7 +14,8 @@
 enum EFFECT_NAME
 {
 	EF_NAME_SHOT,		//銃撃エフェクト
-	EF_NAME_EXPLOSION	//爆発エフェクト
+	EF_NAME_EXPLOSION,	//爆発エフェクト
+	EF_NAME_ITEM		//アイテムエフェクト
 };
 
 using std::vector;

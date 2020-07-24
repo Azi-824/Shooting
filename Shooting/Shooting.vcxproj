@@ -157,6 +157,7 @@
     <ClCompile Include="End.cpp" />
     <ClCompile Include="Fps.cpp" />
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Load.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mouse.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Fps.hpp" />
     <ClInclude Include="Global.hpp" />
     <ClInclude Include="Image.hpp" />
+    <ClInclude Include="Item.hpp" />
     <ClInclude Include="Load.hpp" />
     <ClInclude Include="main.hpp" />
     <ClInclude Include="Mouse.hpp" />

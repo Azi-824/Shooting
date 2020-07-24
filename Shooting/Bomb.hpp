@@ -9,7 +9,7 @@
 //########### マクロ定義 #############
 #define IMG_BOMB_DIR	R"(.\Image\Bomb)"	//爆弾の画像のディレクトリ
 
-#define IMG_NAME_BOMB01	R"(\bomb01.png)"	//爆弾01の名前
+#define IMG_NAME_BOMB	R"(\bomb01.png)"	//爆弾01の名前
 
 //########### クラス定義 #############
 class Bomb : public Target	//Targetを継承
