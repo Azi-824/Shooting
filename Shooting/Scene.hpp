@@ -6,6 +6,7 @@
 //################### ヘッダファイル読み込み ######################
 #include "Global.hpp"
 #include "Image.hpp"
+#include "Music.hpp"
 
 //################### マクロ定義 #########################
 //テキスト関係
@@ -38,6 +39,7 @@ protected:
 
 	//インスタンス毎
 	Image* back;	//背景画像
+	Music* bgm;		//BGM
 
 public:
 

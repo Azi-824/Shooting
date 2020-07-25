@@ -21,6 +21,7 @@ End::~End()
 //データ読込
 bool End::DataLoad()
 {
+	if (!bgm->Load(MUSIC_DIR_BGM, SE_NAME_BGM_RANKING)) { return false; }	//BGM読み込み
 	return true;
 }
 
@@ -28,6 +29,8 @@ bool End::DataLoad()
 void End::SetInit()
 {
 	//back->SetInit();	//背景画像初期設定
+	bgm->SetInit(DX_PLAYTYPE_LOOP, 30);		//BGM初期設定
+
 }
 
 
@@ -35,8 +38,10 @@ void End::SetInit()
 void End::Run()
 {
 	//************************** 処理系 *********************************
+	bgm->Play();	//BGMを流す
 	if (Mouse::OnLeftClick())	//左クリックされたら
 	{
+		bgm->Stop();			//BGMを止める
 		NowScene = SCENE_TITLE;	//タイトル画面へ
 	}
 

@@ -11,12 +11,14 @@ int Scene::NowScene = 0;	//現在のシーン
 Scene::Scene()
 {
 	back = new Image();	//インスタンス生成
+	bgm = new Music();	//インスタンス生成
 }
 
 //デストラクタ
 Scene::~Scene()
 {
 	delete back;	//back破棄
+	delete bgm;		//bgm破棄
 }
 
 //現在のシーンを取得

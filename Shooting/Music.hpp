@@ -17,6 +17,11 @@
 #define SE_NAME_EFFECT_SHOT			R"(\shot.mp3)"			//銃撃エフェクトの効果音
 #define SE_NAME_EFFECT_ITEM			R"(\item.wav)"			//アイテムエフェクトの効果音
 
+//BGM
+#define SE_NAME_BGM_TITLE			R"(\title.mp3)"			//タイトルのBGM
+#define SE_NAME_BGM_PLAY			R"(\play.mp3)"			//プレイのBGM
+#define SE_NAME_BGM_RANKING			R"(\ranking.mp3)"		//ランキングのBGM
+
 //##################### マクロ定義：エラーメッセージ ######################
 #define MUSIC_ERROR_TITLE "MUSIC_ERROR"					//エラータイトル
 #define MUSIC_ERROR_MSG	"音が読み込めませんでした"		//エラーメッセージ
@@ -46,8 +51,10 @@ private:
 public:
 
 	Music(const char *, const char *);		//コンストラクタ
-
+	Music();								//コンストラクタ
 	~Music();								//デストラクタ
+
+	bool Load(const char*, const char*);	//読み込み
 
 	bool GetIsLoad();						//読み込めたかを取得する
 	bool GetIsPlay();						//音が再生されているか取得する

@@ -49,6 +49,9 @@ bool Play::DataLoad()
 	//画像関係
 	if (!back->Load(IMG_DIR_BACK, IMG_NAME_PLAY)) { return false; }	//背景画像読み込み
 
+	//BGM
+	if (!bgm->Load(MUSIC_DIR_BGM, SE_NAME_BGM_PLAY)) { return false; }	//BGM読み込み
+
 	//的関係
 	tg_img.push_back(new Image(IMG_TOY_DIR, IMG_NAME_TOY01));		//おもちゃ01
 	tg_img.push_back(new Image(IMG_TOY_DIR, IMG_NAME_TOY02));		//おもちゃ02
@@ -109,6 +112,7 @@ bool Play::DataLoad()
 void Play::SetInit()
 {
 	back->SetInit();	//背景画像初期設定
+	bgm->SetInit(DX_PLAYTYPE_LOOP, 30);		//BGM初期設定
 	for (auto t : target)
 	{
 		t->SetInit(100);	//初期設定
@@ -120,7 +124,8 @@ void Play::Run()
 {
 
 	Start();	//シーンが変わったら、一回だけ行う処理
-	
+
+	bgm->Play();	//BGMを流す
 	back->Draw(GAME_LEFT, GAME_TOP);	//背景描画
 	DrawString(TEST_TEXT_X, TEST_TEXT_Y, PLAY_TEXT, GetColor(255, 255, 255));	//テスト用のテキストを描画
 
@@ -149,12 +154,14 @@ void Play::Run()
 	if (limit->GetIsLimit())//制限時間を過ぎたら
 	{
 		StartFlg = false;
+		bgm->Stop();			//BGMを止める
 		NowScene = SCENE_END;	//エンド画面へ
 	}
 
 	if (Mouse::OnRightClick())	//右クリックしたら
 	{
 		StartFlg = false;
+		bgm->Stop();			//BGMを止める
 		NowScene = SCENE_END;	//エンド画面へ
 	}
 
