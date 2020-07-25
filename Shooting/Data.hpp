@@ -7,7 +7,7 @@
 #include "Global.hpp"
 
 //################### マクロ定義 #####################
-#define RANKING_DRAW_X	10	//ランキング描画X位置
+#define RANKING_DRAW_X	200	//ランキング描画X位置
 #define RANKING_DRAW_Y	10	//ランキング描画Y位置
 
 #define RANK_INDEX_TEXT	"ランキング"	//表題テキスト

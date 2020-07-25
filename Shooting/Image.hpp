@@ -12,6 +12,7 @@
 
 #define IMG_NAME_TITLE		R"(\title.jpg)"					//タイトル画面の背景画像の名前
 #define IMG_NAME_PLAY		R"(\play.jpg)"					//プレイ画面の背景画像の名前
+#define IMG_NAME_RANKING	R"(\ranking.jpg)"				//ランキング画面の背景画像の名前
 
 #define FADE_MAX_CNT	60	//フェード処理のカウント最大値
 #define TOUKA_MAX_VALUE	255	//透過の最大値
@@ -24,7 +25,8 @@
 enum BACK_IMAGE
 {
 	TITLE_BACK,		//タイトル画面の背景画像
-	PLAY_BACK		//プレイ画面の背景画像
+	PLAY_BACK,		//プレイ画面の背景画像
+	RANKING_BACK	//ランキング画面
 };
 
 using std::string;
