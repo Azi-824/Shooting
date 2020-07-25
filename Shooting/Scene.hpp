@@ -7,6 +7,8 @@
 #include "Global.hpp"
 #include "Image.hpp"
 #include "Music.hpp"
+#include "Data.hpp"
+#include "Save.hpp"
 
 //################### マクロ定義 #########################
 //テキスト関係
@@ -29,6 +31,8 @@ enum GAME_SCENE
 	SCENE_RANKING		//ランキングシーン
 };
 
+using std::vector;
+
 //################### クラス定義 #########################
 class Scene
 {
@@ -36,6 +40,7 @@ protected:
 
 	//クラス共通
 	static int NowScene;		//現在のシーン
+	static vector<Data*> data;	//データ
 
 	//インスタンス毎
 	Image* back;	//背景画像

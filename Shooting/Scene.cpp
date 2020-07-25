@@ -6,6 +6,7 @@
 //############## クラス定義 ################
 
 int Scene::NowScene = 0;	//現在のシーン
+vector<Data*> Scene::data;	//データ
 
 //コンストラクタ
 Scene::Scene()

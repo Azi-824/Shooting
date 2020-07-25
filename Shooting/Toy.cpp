@@ -24,10 +24,10 @@ void Toy::Event(Time* limit)
 {
 	DrawString(100, 300, "ToyのEvent()", COLOR_WHITE);	//テスト用のテキストを描画
 
-	Score::AddScore(score);			//スコア加算
 	effect->DrawCenter(rect);		//エフェクト描画
 	if (effect->GetIsEffectEnd())	//エフェクト描画が終わったら
 	{
+		Score::AddScore(score);		//スコア加算
 		effect->Reset();			//エフェクトリセット
 		img->SetIsDraw(false);		//的非表示
 		SetEventFlg(false);			//イベント終了

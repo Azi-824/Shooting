@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Bomb.cpp" />
+    <ClCompile Include="Data.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Ranking.cpp" />
     <ClCompile Include="Fps.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Music.cpp" />
     <ClCompile Include="Play.cpp" />
+    <ClCompile Include="Save.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Target.cpp" />
@@ -173,6 +175,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.hpp" />
     <ClInclude Include="Bomb.hpp" />
+    <ClInclude Include="Data.hpp" />
     <ClInclude Include="Effect.hpp" />
     <ClInclude Include="Ranking.hpp" />
     <ClInclude Include="Fps.hpp" />
@@ -184,6 +187,7 @@
     <ClInclude Include="Mouse.hpp" />
     <ClInclude Include="Music.hpp" />
     <ClInclude Include="Play.hpp" />
+    <ClInclude Include="Save.hpp" />
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="Score.hpp" />
     <ClInclude Include="Target.hpp" />

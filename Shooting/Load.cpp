@@ -22,6 +22,7 @@ void Load::SetInit(){}
 //データ読込
 bool Load::DataLoad()
 {
+	if (!Save::Load(&data)) { return false; }	//セーブデータ読み込み失敗
 	return true;
 }
 
