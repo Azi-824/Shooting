@@ -50,9 +50,14 @@ bool Play::DataLoad()
 	if (!back->Load(IMG_DIR_BACK, IMG_NAME_PLAY)) { return false; }	//背景画像読み込み
 
 	//的関係
-	tg_img.push_back(new Image(IMG_TOY_DIR, IMG_NAME_TOY));		//ぬいぐるみ（お化けを追加）
-	tg_img.push_back(new Image(IMG_BOMB_DIR, IMG_NAME_BOMB));	//爆弾1
-	tg_img.push_back(new Image(IMG_ITEM_DIR, IMG_NAME_ITEM));	//アイテム
+	tg_img.push_back(new Image(IMG_TOY_DIR, IMG_NAME_TOY01));		//おもちゃ01
+	tg_img.push_back(new Image(IMG_TOY_DIR, IMG_NAME_TOY02));		//おもちゃ02
+	tg_img.push_back(new Image(IMG_TOY_DIR, IMG_NAME_TOY03));		//おもちゃ03
+	tg_img.push_back(new Image(IMG_BOMB_DIR, IMG_NAME_BOMB01));		//爆弾1
+	tg_img.push_back(new Image(IMG_BOMB_DIR, IMG_NAME_BOMB02));		//爆弾2
+	tg_img.push_back(new Image(IMG_BOMB_DIR, IMG_NAME_BOMB03));		//爆弾3
+	tg_img.push_back(new Image(IMG_ITEM_DIR, IMG_NAME_ITEM01));		//アイテム1
+	tg_img.push_back(new Image(IMG_ITEM_DIR, IMG_NAME_ITEM02));		//アイテム2
 
 	for (auto i : tg_img)
 	{
@@ -85,9 +90,14 @@ bool Play::DataLoad()
 	tg_effect.push_back(new Effect(eff_anim.at(EF_NAME_ITEM), eff_se.at(EF_NAME_ITEM)));			//エフェクト（アイテム）追加
 
 	//的
-	target.push_back(new Toy(tg_img.at(TG_NAME_GHOST),tg_effect.at(EF_NAME_SHOT)));			//ぬいぐるみ（お化けを追加）
-	target.push_back(new Bomb(tg_img.at(TG_NAME_BOMB1), tg_effect.at(EF_NAME_EXPLOSION)));	//爆弾1
-	target.push_back(new Item(tg_img.at(TG_NAME_ITEM), tg_effect.at(EF_NAME_ITEM)));		//アイテム
+	target.push_back(new Toy(tg_img.at(TG_NAME_TOY01),tg_effect.at(EF_NAME_SHOT)));			//おもちゃ01
+	target.push_back(new Toy(tg_img.at(TG_NAME_TOY02), tg_effect.at(EF_NAME_SHOT)));		//おもちゃ02
+	target.push_back(new Toy(tg_img.at(TG_NAME_TOY03), tg_effect.at(EF_NAME_SHOT)));		//おもちゃ03
+	target.push_back(new Bomb(tg_img.at(TG_NAME_BOMB01), tg_effect.at(EF_NAME_EXPLOSION)));	//爆弾1
+	target.push_back(new Bomb(tg_img.at(TG_NAME_BOMB02), tg_effect.at(EF_NAME_EXPLOSION)));	//爆弾2
+	target.push_back(new Bomb(tg_img.at(TG_NAME_BOMB03), tg_effect.at(EF_NAME_EXPLOSION)));	//爆弾3
+	target.push_back(new Item(tg_img.at(TG_NAME_ITEM01), tg_effect.at(EF_NAME_ITEM)));		//アイテム1
+	target.push_back(new Item(tg_img.at(TG_NAME_ITEM02), tg_effect.at(EF_NAME_ITEM)));		//アイテム2
 
 	//時間系
 	limit = new Time(GAME_LIMIT_TIME);	//ゲームの制限時間を管理するオブジェクトを生成

@@ -17,9 +17,14 @@
 //############### 列挙型 ####################
 enum TARGET_NAME
 {
-	TG_NAME_GHOST,	//お化け
-	TG_NAME_BOMB1,	//爆弾1
-	TG_NAME_ITEM	//アイテム
+	TG_NAME_TOY01,	//おもちゃ01
+	TG_NAME_TOY02,	//おもちゃ02
+	TG_NAME_TOY03,	//おもちゃ03
+	TG_NAME_BOMB01,	//爆弾1
+	TG_NAME_BOMB02,	//爆弾2
+	TG_NAME_BOMB03,	//爆弾3
+	TG_NAME_ITEM01,	//アイテム1
+	TG_NAME_ITEM02	//アイテム2
 };
 
 //############### クラス定義 ####################
