@@ -48,5 +48,9 @@ void Ranking::Run()
 
 	//**************************** 描画系 *******************************
 	DrawString(TEST_TEXT_X, TEST_TEXT_Y, END_TEXT, GetColor(255, 255, 255));	//テスト用のテキストを描画
+	for (auto d : data)
+	{
+		d->Draw();	//スコア描画
+	}
 
 }

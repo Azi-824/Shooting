@@ -7,7 +7,8 @@
 #include "Global.hpp"
 
 //################### マクロ定義 #####################
-#define DATA_MAX	10	//データの最大数
+#define RANKING_DRAW_X	10	//ランキング描画X位置
+#define RANKING_DRAW_Y	10	//ランキング描画Y位置
 
 //################### クラス定義 #####################
 class Data
@@ -16,6 +17,8 @@ class Data
 private:
 
 	int Score;		//スコア
+	int Element;	//要素番号
+	static int ElementCnt;	//要素数
 
 	DATEDATA date;	//日付データ
 
@@ -31,5 +34,7 @@ public:
 
 	DATEDATA GetDate();	//日付データ取得
 	int GetScore();		//スコア取得
+
+	void Draw();		//スコア描画
 
 };

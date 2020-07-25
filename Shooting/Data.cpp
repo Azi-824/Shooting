@@ -6,12 +6,15 @@
 
 //################# クラス定義 ###################
 
+int Data::ElementCnt = 0;	//要素数
+
 //コンストラクタ
 Data::Data(DATEDATA date, int score)
 {
 	//メンバー初期化
 	this->date = date;	//データ
 	Score = score;		//スコア
+	Element = ElementCnt++;	//要素番号
 }
 
 //コンストラクタ
@@ -48,4 +51,11 @@ DATEDATA Data::GetDate()
 int Data::GetScore()
 {
 	return Score;
+}
+
+//スコア描画
+void Data::Draw()
+{
+	int height = GetFontSize();	//高さ取得
+	DrawFormatString(RANKING_DRAW_X, (RANKING_DRAW_Y + height) * Element, COLOR_WHITE, "%d年/%d月/%d日%d点", date.Year, date.Mon, date.Day, Score);
 }

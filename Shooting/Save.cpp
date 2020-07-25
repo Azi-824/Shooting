@@ -120,16 +120,10 @@ bool Save::DataSave(vector<Data*> data)
 		ofs << date.at(i).Year << ',';	//年、書き出し
 		ofs << date.at(i).Mon << ',';	//月、書き出し
 		ofs << date.at(i).Day << ',';	//日、書き出し
-		if (i == data.size() - 1)		//最後の書き込みだったら
-		{
-			//終端文字を付ける
-			ofs << score.at(i) << '\0';			//スコア、書き出し
-		}
-		else	//最後の書き込みじゃなければ
-		{
-			//改行する
-			ofs << score.at(i) << '\n';			//スコア、書き出し
-		}
+		ofs << score.at(i);				//スコア書き出し
+
+		//最後の書き込みなら終端文字を付け、そうじゃなければ改行
+		i == data.size() - 1 ? ofs << '\0' : ofs << '\n';
 
 	}
 
