@@ -23,6 +23,7 @@
 #define COLOR_BLUE	GetColor(0,0,255)		//青色
 #define COLOR_WHITE GetColor(255,255,255)	//白色
 #define COLOR_BLACK GetColor(0,0,0)			//黒色
+#define COLOR_GRAY GetColor(128,128,128)	//灰色
 
 //****************** その他 ***********************
 #define INIT_VALUE		0	//初期値

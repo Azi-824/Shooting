@@ -20,8 +20,6 @@ Bomb::~Bomb(){}
 //クリックされた時の処理
 void Bomb::Event(Time* limit)
 {
-	DrawString(100, 300, "BombのEvent()", COLOR_WHITE);	//テスト用のテキストを描画
-
 	effect->DrawCenter(rect);			//エフェクト描画
 	if (effect->GetIsEffectEnd())		//エフェクト描画が終わったら
 	{

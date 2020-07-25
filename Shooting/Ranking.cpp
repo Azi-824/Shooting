@@ -21,7 +21,7 @@ Ranking::~Ranking()
 //ÉfÅ[É^ì«çû
 bool Ranking::DataLoad()
 {
-	if (!bgm->Load(MUSIC_DIR_BGM, SE_NAME_BGM_RANKING)) { return false; }	//BGMì«Ç›çûÇ›
+	if (!bgm->Load(MUSIC_DIR_BGM, BGM_NAME_RANKING)) { return false; }	//BGMì«Ç›çûÇ›
 	return true;
 }
 

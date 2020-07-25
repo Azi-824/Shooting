@@ -50,7 +50,7 @@ bool Play::DataLoad()
 	if (!back->Load(IMG_DIR_BACK, IMG_NAME_PLAY)) { return false; }	//îwåiâÊëúì«Ç›çûÇ›
 
 	//BGM
-	if (!bgm->Load(MUSIC_DIR_BGM, SE_NAME_BGM_PLAY)) { return false; }	//BGMì«Ç›çûÇ›
+	if (!bgm->Load(MUSIC_DIR_BGM, BGM_NAME_PLAY)) { return false; }	//BGMì«Ç›çûÇ›
 
 	//ìIä÷åW
 	tg_img.push_back(new Image(IMG_TOY_DIR, IMG_NAME_TOY01));		//Ç®Ç‡ÇøÇ·01

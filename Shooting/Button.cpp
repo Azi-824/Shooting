@@ -7,6 +7,7 @@
 //############### クラス定義 ###############
 
 int Button::ElementCnt = 0;	//要素数
+Music* Button::se;			//効果音
 
 //コンストラクタ
 Button::Button(Image* img)
@@ -14,12 +15,17 @@ Button::Button(Image* img)
 	this->img = img;
 	rect = { 0 };	//領域初期化
 	Element = ElementCnt++;	//要素番号設定
+	if (se == NULL)	//効果音が空なら
+	{
+		se = new Music(MUSIC_DIR_SE, SE_NAME_KETTEI);	//効果音追加
+	}
 }
 
 //デストラクタ
 Button::~Button()
 {
 	delete img;	//img破棄
+	delete se;	//se破棄
 }
 
 //初期設定
@@ -31,12 +37,31 @@ void Button::SetInit(int x,int y)
 	rect.top = y;						//左上Y
 	rect.right = x + img->GetWidth();	//右下X
 	rect.bottom = y + img->GetHeight();	//右下Y
+	se->SetInit(DX_PLAYTYPE_BACK, 60);	//効果音
+
+}
+
+//更新処理
+void Button::UpDate()
+{
+	//マウスがボタンの領域の中にあるか
+	if (Mouse::HoverRect(rect))	//領域内の時
+	{
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, RECT_TOUKA_VALUE * TOUKA_MAX_VALUE);	//透過させる
+		DrawBox(rect.left, rect.top, rect.right, rect.bottom, COLOR_GRAY, TRUE);	//薄い四角形を描画
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);									//透過をやめる
+	}
 }
 
 //ボタンをクリックされたか
 bool Button::OnClick()
 {
-	return Mouse::OnLeftClick(rect);
+	se->Reset();	//再生状態リセット
+	bool click = Mouse::OnLeftClick(rect);
+	if (click)	//クリックされたら
+		se->PlayOne();	//効果音再生
+
+	return click;
 }
 
 //描画

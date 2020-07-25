@@ -23,7 +23,7 @@ Title::~Title()
 bool Title::DataLoad()
 {
 	if (!back->Load(IMG_DIR_BACK, IMG_NAME_TITLE)) { return false; }	//背景画像読み込み
-	if (!bgm->Load(MUSIC_DIR_BGM, SE_NAME_BGM_TITLE)) { return false; }	//BGM読み込み
+	if (!bgm->Load(MUSIC_DIR_BGM, BGM_NAME_TITLE)) { return false; }	//BGM読み込み
 
 	//ボタンの画像
 	bt_img.push_back(new Image(BT_IMG_DIR, BT_START_IMG_NAME));	//ボタン（スタート）追加
@@ -62,6 +62,7 @@ void Title::Run()
 	//ボタン処理
 	for (auto b : button)
 	{
+		b->UpDate();//更新
 		b->Draw();	//ボタン描画
 		if (b->OnClick())	//ボタンをクリックされたら
 		{

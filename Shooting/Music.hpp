@@ -18,9 +18,12 @@
 #define SE_NAME_EFFECT_ITEM			R"(\item.wav)"			//アイテムエフェクトの効果音
 
 //BGM
-#define SE_NAME_BGM_TITLE			R"(\title.mp3)"			//タイトルのBGM
-#define SE_NAME_BGM_PLAY			R"(\play.mp3)"			//プレイのBGM
-#define SE_NAME_BGM_RANKING			R"(\ranking.mp3)"		//ランキングのBGM
+#define BGM_NAME_TITLE				R"(\title.mp3)"			//タイトルのBGM
+#define BGM_NAME_PLAY				R"(\play.mp3)"			//プレイのBGM
+#define BGM_NAME_RANKING			R"(\ranking.mp3)"		//ランキングのBGM
+
+//SE
+#define SE_NAME_KETTEI				R"(\kettei.mp3)"		//決定の効果音
 
 //##################### マクロ定義：エラーメッセージ ######################
 #define MUSIC_ERROR_TITLE "MUSIC_ERROR"					//エラータイトル

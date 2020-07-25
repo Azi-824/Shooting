@@ -14,7 +14,6 @@ class Mouse
 
 private:
 
-	static bool CheckClickOnRect(RECT);	//クリックした位置が、指定された領域内か確認
 	static int LeftInfo;	//左クリックの情報
 	static int RightInfo;	//右クリックの情報
 
@@ -30,5 +29,6 @@ public:
 	static bool OnLeftClick(RECT);	//左クリックされたか(指定された領域内)
 	static bool OnRightClick();		//右クリックされたか(画面内)
 	static bool OnRightClick(RECT);	//右クリックされたか(指定された領域内)
+	static bool HoverRect(RECT);	//指定された領域内にマウスがいるか
 
 };

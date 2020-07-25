@@ -187,7 +187,6 @@ void Music::PlayOne(bool check)
 	}
 }
 
-
 //Ä¶Ï‚İ‚©‚Ç‚¤‚©‚ğƒŠƒZƒbƒg‚·‚é
 void Music::Reset()
 {
