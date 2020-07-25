@@ -14,7 +14,7 @@
 #define PUSH_TEXT	"PushEnter"			//エンターキーを押す、のテキスト
 #define TITLE_TEXT	"NowTitle"			//タイトル画面のテキスト
 #define PLAY_TEXT	"NowPlay"			//プレイ画面のテキスト
-#define END_TEXT	"NowEnd"			//エンド画面のテキスト
+#define END_TEXT	"NowRanking"		//エンド画面のテキスト
 
 //座標関係
 #define TEST_TEXT_X	30					//テスト用のテキスト描画X位置
@@ -26,7 +26,7 @@ enum GAME_SCENE
 	SCENE_LOAD,			//ロードシーン
 	SCENE_TITLE,		//タイトルシーン
 	SCENE_PLAY,			//プレイシーン
-	SCENE_END			//エンドシーン
+	SCENE_RANKING		//ランキングシーン
 };
 
 //################### クラス定義 #########################

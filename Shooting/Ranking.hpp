@@ -1,5 +1,5 @@
-//End.hpp
-//エンド画面の処理
+//Ranking.hpp
+//ランキング画面の処理
 
 #pragma once
 
@@ -9,14 +9,14 @@
 //############# マクロ定義 ##############
 
 //############# クラス定義 ##############
-class End : public Scene	//Sceneを継承
+class Ranking : public Scene	//Sceneを継承
 {
 private:
 
 public:
 
-	End();			//コンストラクタ
-	~End();					//デストラクタ
+	Ranking();			//コンストラクタ
+	~Ranking();					//デストラクタ
 
 	void SetInit() override;	//初期設定
 	bool DataLoad() override;	//データ読込

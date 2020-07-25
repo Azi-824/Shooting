@@ -92,7 +92,7 @@ void AddScene()
 	scene.push_back(new Load());	//ロード画面追加
 	scene.push_back(new Title());	//タイトル画面追加
 	scene.push_back(new Play());	//プレイ画面追加
-	scene.push_back(new End());		//エンド画面追加
+	scene.push_back(new Ranking());	//ランキング画面追加
 }
 
 //ゲーム内で使用したクラスを削除する処理

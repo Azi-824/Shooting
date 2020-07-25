@@ -155,14 +155,14 @@ void Play::Run()
 	{
 		StartFlg = false;
 		bgm->Stop();			//BGMを止める
-		NowScene = SCENE_END;	//エンド画面へ
+		NowScene = SCENE_RANKING;	//エンド画面へ
 	}
 
 	if (Mouse::OnRightClick())	//右クリックしたら
 	{
 		StartFlg = false;
 		bgm->Stop();			//BGMを止める
-		NowScene = SCENE_END;	//エンド画面へ
+		NowScene = SCENE_RANKING;	//エンド画面へ
 	}
 
 }

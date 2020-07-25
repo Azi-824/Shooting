@@ -2,31 +2,31 @@
 //エンド画面の処理
 
 //############# ヘッダファイル読み込み ###############
-#include "End.hpp"
+#include "Ranking.hpp"
 
 //############# クラス定義 ################
 
 //コンストラクタ
-End::End()
+Ranking::Ranking()
 {
 	
 }
 
 //デストラクタ
-End::~End()
+Ranking::~Ranking()
 {
 
 }
 
 //データ読込
-bool End::DataLoad()
+bool Ranking::DataLoad()
 {
 	if (!bgm->Load(MUSIC_DIR_BGM, SE_NAME_BGM_RANKING)) { return false; }	//BGM読み込み
 	return true;
 }
 
 //初期設定
-void End::SetInit()
+void Ranking::SetInit()
 {
 	//back->SetInit();	//背景画像初期設定
 	bgm->SetInit(DX_PLAYTYPE_LOOP, 30);		//BGM初期設定
@@ -35,7 +35,7 @@ void End::SetInit()
 
 
 //エンド画面の処理
-void End::Run()
+void Ranking::Run()
 {
 	//************************** 処理系 *********************************
 	bgm->Play();	//BGMを流す

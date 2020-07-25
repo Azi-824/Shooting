@@ -10,7 +10,7 @@
 #include "Load.hpp"
 #include "Title.hpp"
 #include "Play.hpp"
-#include "End.hpp"
+#include "Ranking.hpp"
 
 
 //########## É}ÉNÉçíËã` ##########
