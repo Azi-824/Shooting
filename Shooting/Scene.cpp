@@ -7,6 +7,7 @@
 
 int Scene::NowScene = 0;	//現在のシーン
 vector<Data*> Scene::data;	//データ
+vector<Font*> Scene::font;	//フォント
 
 //コンストラクタ
 Scene::Scene()

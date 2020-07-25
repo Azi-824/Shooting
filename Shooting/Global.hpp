@@ -6,6 +6,7 @@
 //################## ヘッダファイル読み込み ##################
 #include "DxLib.h"
 #include "Mouse.hpp"
+#include "Font.hpp"
 #include <vector>
 #include <string>
 
@@ -29,5 +30,3 @@
 #define TOUKA_MAX_VALUE	255	//透過の最大値
 
 //##################### マクロ定義 #####################
-
-extern int NowFontHandle;	//現在のフォントハンドル

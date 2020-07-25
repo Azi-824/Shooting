@@ -23,6 +23,14 @@ void Load::SetInit(){}
 bool Load::DataLoad()
 {
 	if (!Save::Load(&data)) { return false; }	//セーブデータ読み込み失敗
+	font.push_back(new Font(F_NAME_HGS, F_SIZE_NORMAL, F_BOLD_NORMAL, DX_FONTTYPE_ANTIALIASING));	//フォント(通常サイズ生成)
+	font.push_back(new Font(F_NAME_HGS, F_SIZE_MINI, F_BOLD_NORMAL, DX_FONTTYPE_ANTIALIASING));		//フォント(ミニサイズ生成)
+	font.push_back(new Font(F_NAME_HGS, F_SIZE_RANKING, F_BOLD_NORMAL, DX_FONTTYPE_ANTIALIASING));	//フォント(ランキング用サイズ生成)
+	for (auto f : font)
+	{
+		if (!f->GetIsCreate()) { return false; }	//読み込み失敗
+	}
+	font.at(FH_NORMAL)->Chenge();	//通常サイズのフォントに変更
 	return true;
 }
 
@@ -50,11 +58,11 @@ void Load::Run()
 	//********************************* 描画系 ************************************
 	if (IsGameStart)	//ゲームスタートできるなら
 	{
-		DrawString(TEST_TEXT_X, TEST_TEXT_Y, PUSH_TEXT, GetColor(255, 255, 255));	//プッシュ、のテキストを描画
+		DrawStringToHandle(TEST_TEXT_X, TEST_TEXT_Y, PUSH_TEXT, GetColor(255, 255, 255), Font::GetNowHandle());
 	}
 	else		//できないなら
 	{
-		DrawString(TEST_TEXT_X, TEST_TEXT_Y, LOAD_TEXT, GetColor(255, 255, 255));	//読み込み中のテキストを描画
+		DrawStringToHandle(TEST_TEXT_X, TEST_TEXT_Y, LOAD_TEXT, GetColor(255, 255, 255), Font::GetNowHandle());
 	}
 
 

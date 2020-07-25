@@ -10,6 +10,10 @@
 #define RANKING_DRAW_X	10	//ランキング描画X位置
 #define RANKING_DRAW_Y	10	//ランキング描画Y位置
 
+#define RANK_INDEX_TEXT	"ランキング"	//表題テキスト
+
+#define RANKING_DRAW_MAX 10	//描画するデータの最大数
+
 //################### クラス定義 #####################
 class Data
 {

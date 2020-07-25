@@ -76,8 +76,6 @@ bool GameLoop()
 
 	//▲▲▲▲▲ゲームのシーンここまで▲▲▲▲▲
 
-	fps->Draw(0, 0);		//FPS描画
-
 	ScreenFlip();			//モニタのリフレッシュレートの速さで裏画面を再描画
 
 	fps->Wait();			//FPSの処理[待つ]
@@ -106,6 +104,8 @@ void Delete_Class()
 	{
 		delete s;			//scene破棄
 	}
+
+	Font::ReleaseFont();	//読み込んだフォントを開放
 
 	return;
 }

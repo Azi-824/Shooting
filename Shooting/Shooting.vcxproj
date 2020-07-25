@@ -155,6 +155,7 @@
     <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="Font.cpp" />
     <ClCompile Include="Ranking.cpp" />
     <ClCompile Include="Fps.cpp" />
     <ClCompile Include="Image.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Bomb.hpp" />
     <ClInclude Include="Data.hpp" />
     <ClInclude Include="Effect.hpp" />
+    <ClInclude Include="Font.hpp" />
     <ClInclude Include="Ranking.hpp" />
     <ClInclude Include="Fps.hpp" />
     <ClInclude Include="Global.hpp" />

@@ -9,6 +9,7 @@
 #include "Music.hpp"
 #include "Data.hpp"
 #include "Save.hpp"
+#include "Font.hpp"
 
 //################### マクロ定義 #########################
 //テキスト関係
@@ -41,6 +42,7 @@ protected:
 	//クラス共通
 	static int NowScene;		//現在のシーン
 	static vector<Data*> data;	//データ
+	static vector<Font*> font;	//フォント
 
 	//インスタンス毎
 	Image* back;	//背景画像

@@ -56,6 +56,11 @@ int Data::GetScore()
 //スコア描画
 void Data::Draw()
 {
-	int height = GetFontSize();	//高さ取得
-	DrawFormatString(RANKING_DRAW_X, (RANKING_DRAW_Y + height) * Element, COLOR_WHITE, "%d年/%d月/%d日%d点", date.Year, date.Mon, date.Day, Score);
+	if (Element >= RANKING_DRAW_MAX)	//描画する最大数より多ければ
+		return;	//描画せず終了
+
+	if (Element == 0)	//先頭の時は
+		DrawStringToHandle(RANKING_DRAW_X, RANKING_DRAW_Y, RANK_INDEX_TEXT, COLOR_WHITE, Font::GetNowHandle());	//表題描画
+	int height = GetFontSizeToHandle(Font::GetNowHandle());	//高さ取得
+	DrawFormatStringToHandle(RANKING_DRAW_X, (RANKING_DRAW_Y + height) * (Element + 1), COLOR_WHITE, Font::GetNowHandle(), "%d年 %d月 %d日 %d点", date.Year, date.Mon, date.Day, Score);
 }
