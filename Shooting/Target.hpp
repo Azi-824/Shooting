@@ -43,9 +43,9 @@ protected:
 	RECT rect;		//領域
 	Time* time;		//時間
 	Effect* effect;	//エフェクト
-	int score;		//スコア
-	int element_num;//自分が何番目の要素か
+	int Element;	//要素番号
 	static vector<RECT> use_rect;	//既に使用されている領域
+	static vector<int> ScoreTable;	//スコアテーブル
 
 	void CreateDrawPos();		//描画位置を生成
 	bool RectOverRap();	//自分の領域が、使用済みかどうか調べる
@@ -56,7 +56,7 @@ public:
 	~Target();		//デストラクタ
 
 	virtual void UpDate();		//毎回行う処理
-	virtual void SetInit(int);	//初期設定
+	virtual void SetInit();		//初期設定
 	virtual void Event(Time*) = 0;	//的をクリックしたときのイベント
 	bool OnClick();				//クリックしたか
 	void Draw();				//描画

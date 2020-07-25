@@ -115,7 +115,7 @@ void Play::SetInit()
 	bgm->SetInit(DX_PLAYTYPE_LOOP, 30);		//BGM‰Šúİ’è
 	for (auto t : target)
 	{
-		t->SetInit(100);	//‰Šúİ’è
+		t->SetInit();	//‰Šúİ’è
 	}
 }
 

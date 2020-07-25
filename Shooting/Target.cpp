@@ -7,6 +7,7 @@
 //################# クラス定義 ####################
 
 vector<RECT> Target::use_rect;	//使用されている領域
+vector<int> Target::ScoreTable;	//スコアテーブル
 
 //コンストラクタ
 Target::Target()
@@ -14,14 +15,26 @@ Target::Target()
 	//メンバー初期化
 	DrawX = 0;				//描画X位置
 	DrawY = 0;				//描画Y位置
-	score = 0;				//スコア
 	EventFlg = false;		//イベントフラグ
 	img = new Image();		//画像
 	time = new Time();		//時間
 	effect = new Effect();	//エフェクト
 	rect = { 0,0,0,0 };		//領域
-	element_num = use_rect.size();	//何番目の要素か
+	Element = use_rect.size();	//何番目の要素か
 	use_rect.push_back(rect);		//使用済み領域追加
+
+	if (ScoreTable.empty())	//テーブルが空なら
+	{
+		ScoreTable.push_back(100);	//おもちゃ01
+		ScoreTable.push_back(150);	//おもちゃ02
+		ScoreTable.push_back(200);	//おもちゃ03
+		ScoreTable.push_back(-100);	//爆弾01
+		ScoreTable.push_back(-150);	//爆弾02
+		ScoreTable.push_back(-200);	//爆弾03
+		ScoreTable.push_back(0);	//アイテム01
+		ScoreTable.push_back(0);	//アイテム02
+	}
+
 }
 
 //デストラクタ
@@ -33,7 +46,7 @@ Target::~Target()
 }
 
 //初期設定
-void Target::SetInit(int score)
+void Target::SetInit()
 {
 	img->SetInit();		//画像初期設定
 	CreateDrawPos();	//描画位置生成
@@ -42,7 +55,6 @@ void Target::SetInit(int score)
 	rect.top = DrawY;						//左Y
 	rect.right = DrawX + img->GetWidth();	//右X
 	rect.bottom = DrawY + img->GetHeight();	//右Y
-	this->score = score;	//スコア設定
 	effect->SetInit();		//エフェクト
 	time->StartCount();		//計測開始
 }
@@ -79,7 +91,7 @@ void Target::CreateDrawPos()
 	rect.top = DrawY;						//左Y
 	rect.right = DrawX + img->GetWidth();	//右X
 	rect.bottom = DrawY + img->GetHeight();	//右Y
-	use_rect.at(element_num) = rect;		//使用済みの領域を上書き
+	use_rect.at(Element) = rect;		//使用済みの領域を上書き
 }
 
 //自分の領域が、使用済みかどうか調べる
@@ -89,7 +101,7 @@ bool Target::RectOverRap()
 	int cnt = 0;	//カウント用
 	for (auto r : use_rect)
 	{
-		if (element_num != cnt++)	//自分の領域以外だったら
+		if (Element != cnt++)	//自分の領域以外だったら
 		{
 			//領域が重なっているか判定
 			if (rect.left < r.right &&
