@@ -44,8 +44,11 @@ protected:
 	Time* time;		//時間
 	Effect* effect;	//エフェクト
 	int score;		//スコア
+	int element_num;//自分が何番目の要素か
+	static vector<RECT> use_rect;	//既に使用されている領域
 
-	void CreateDrawPos();	//描画位置を生成
+	void CreateDrawPos();		//描画位置を生成
+	bool RectOverRap();	//自分の領域が、使用済みかどうか調べる
 
 public:
 

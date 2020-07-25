@@ -6,6 +6,8 @@
 
 //################# クラス定義 ####################
 
+vector<RECT> Target::use_rect;	//使用されている領域
+
 //コンストラクタ
 Target::Target()
 {
@@ -18,6 +20,8 @@ Target::Target()
 	time = new Time();		//時間
 	effect = new Effect();	//エフェクト
 	rect = { 0,0,0,0 };		//領域
+	element_num = use_rect.size();	//何番目の要素か
+	use_rect.push_back(rect);		//使用済み領域追加
 }
 
 //デストラクタ
@@ -53,7 +57,10 @@ void Target::UpDate()
 		描画していない時は、次の描画までの時間が過ぎたときのため、再描画する
 		*/
 		img->SetIsDraw(!img->GetIsDraw());	//現在の描画状態の逆を設定
-		CreateDrawPos();					//描画位置再生成
+		do
+		{
+			CreateDrawPos();					//描画位置再生成
+		} while (RectOverRap());
 		time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//制限時間設定
 		time->StartCount();	//計測開始
 	}
@@ -72,6 +79,31 @@ void Target::CreateDrawPos()
 	rect.top = DrawY;						//左Y
 	rect.right = DrawX + img->GetWidth();	//右X
 	rect.bottom = DrawY + img->GetHeight();	//右Y
+	use_rect.at(element_num) = rect;		//使用済みの領域を上書き
+}
+
+//自分の領域が、使用済みかどうか調べる
+//戻り値: true 使用済み : false 未使用
+bool Target::RectOverRap()
+{
+	int cnt = 0;	//カウント用
+	for (auto r : use_rect)
+	{
+		if (element_num != cnt++)	//自分の領域以外だったら
+		{
+			//領域が重なっているか判定
+			if (rect.left < r.right &&
+				rect.right > r.left &&
+				rect.top < r.bottom &&
+				rect.bottom > r.top)
+			{
+				return true;	//使用済み
+			}
+
+		}
+
+	}
+	return false;	//未使用
 }
 
 //描画
