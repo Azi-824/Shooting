@@ -27,6 +27,11 @@ using std::vector;
 //########### クラス定義 #############
 class Save
 {
+
+private:
+
+	static void Sort(vector<Data*>*);	//ソート処理
+
 public:
 
 	Save();		//コンストラクタ

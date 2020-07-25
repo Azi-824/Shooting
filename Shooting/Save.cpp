@@ -100,6 +100,8 @@ bool Save::DataSave(vector<Data*> data)
 
 	}
 
+	Sort(&data);	//ソート処理
+
 	vector<DATEDATA> date;	//日付データ
 	vector<int>	score;		//スコア
 	for (auto d : data)
@@ -138,4 +140,21 @@ bool Save::DataSave(vector<Data*> data)
 	score.swap(v2);
 
 	return true;	//セーブ成功
+}
+
+//ソート処理
+void Save::Sort(vector<Data*> *data)
+{
+	for (int i = 0; i < data->size(); ++i)
+	{
+		for (int j = data->size() - 1; j > i; --j)
+		{
+			if (data->at(j)->GetScore() > data->at(j - 1)->GetScore())
+			{
+				auto temp = data->at(j);
+				data->at(j) = data->at(j - 1);
+				data->at(j - 1) = temp;
+			}
+		}
+	}
 }
