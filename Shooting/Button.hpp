@@ -1,0 +1,56 @@
+//Button.hpp
+//ボタンのクラス
+
+#pragma once
+
+//################# ヘッダファイル読み込み ####################
+#include "Global.hpp"
+#include "Image.hpp"
+
+//################# マクロ定義 ################
+#define BT_IMG_DIR			R"(.\Image\Button)"	//ボタンの画像のディレクトリ
+
+#define BT_START_IMG_NAME	R"(\start.png)"		//ボタンの画像(start)
+#define BT_END_IMG_NAME		R"(\end.png)"		//ボタンの画像(end)
+
+#define BT_START_X	150		//スタートボタンX位置
+#define BT_START_Y	500		//スタートボタンY位置
+#define BT_END_X	500		//スタートボタンX位置
+#define BT_END_Y	500		//スタートボタンY位置
+
+//################# 列挙型 #################
+enum BT_TYPE
+{
+	BT_START,		//スタート
+	BT_END			//エンド
+};
+
+//################# クラス定義 ################
+class Button
+{
+private:
+
+	Image* img;	//画像
+	RECT rect;	//領域
+
+	int Element;			//要素番号
+	static int ElementCnt;	//要素数
+
+public:
+
+	Button(Image*);	//コンストラクタ
+	~Button();		//デストラクタ
+
+	void SetInit(int,int);	//初期設定
+
+	bool OnClick();	//クリックされたか
+	void Draw();	//描画
+	int GetElement();	//要素番号取得
+	
+	template <typename F>
+	void Event(F func)	//クリックされた時のイベント
+	{
+		func();
+	}
+
+};

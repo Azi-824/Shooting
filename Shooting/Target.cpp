@@ -25,6 +25,7 @@ Target::Target()
 
 	if (ScoreTable.empty())	//テーブルが空なら
 	{
+		//的毎のスコアを任意に設定
 		ScoreTable.push_back(100);	//おもちゃ01
 		ScoreTable.push_back(150);	//おもちゃ02
 		ScoreTable.push_back(200);	//おもちゃ03
@@ -49,7 +50,10 @@ Target::~Target()
 void Target::SetInit()
 {
 	img->SetInit();		//画像初期設定
-	CreateDrawPos();	//描画位置生成
+	do
+	{
+		CreateDrawPos();	//描画位置生成
+	} while (RectOverRap());
 	//領域の設定
 	rect.left = DrawX;						//左X
 	rect.top = DrawY;						//左Y

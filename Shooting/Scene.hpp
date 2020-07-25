@@ -41,6 +41,7 @@ protected:
 
 	//クラス共通
 	static int NowScene;		//現在のシーン
+	static bool GameEnd;		//ゲーム終了フラグ
 	static vector<Data*> data;	//データ
 	static vector<Font*> font;	//フォント
 
@@ -54,6 +55,7 @@ public:
 	~Scene();		//デストラクタ
 
 	static int GetNowScene();	//現在のシーンを取得
+	static bool IsGameEnd();	//ゲームエンドフラグを取得
 
 	virtual void SetInit() = 0;		//初期設定
 	virtual bool DataLoad() = 0;	//シーンごとの読み込み

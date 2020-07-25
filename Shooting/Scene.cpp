@@ -6,6 +6,7 @@
 //############## クラス定義 ################
 
 int Scene::NowScene = 0;	//現在のシーン
+bool Scene::GameEnd = false;//ゲームエンドフラグ
 vector<Data*> Scene::data;	//データ
 vector<Font*> Scene::font;	//フォント
 
@@ -27,4 +28,10 @@ Scene::~Scene()
 int Scene::GetNowScene()
 {
 	return NowScene;
+}
+
+//ゲームエンドフラグを取得
+bool Scene::IsGameEnd()
+{
+	return GameEnd;
 }

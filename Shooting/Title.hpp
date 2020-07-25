@@ -5,6 +5,7 @@
 
 //################### ヘッダファイル読み込み ################
 #include "Scene.hpp"
+#include "Button.hpp"
 
 //################### マクロ定義 #####################
 
@@ -12,6 +13,9 @@
 class Title : public Scene	//Sceneクラスを継承
 {
 private:
+
+	vector<Image*> bt_img;	//ボタンの画像
+	vector<Button*> button;	//ボタン
 
 public:
 
