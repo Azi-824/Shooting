@@ -11,7 +11,7 @@ Bomb::Bomb(Image* img,Effect* effect)
 {
 	this->img = img;		//画像
 	this->effect = effect;	//エフェクト
-	time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//制限時間設定
+	time->SetLimit(GetRand(LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN);	//制限時間設定
 }
 
 //デストラクタ

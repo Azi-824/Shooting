@@ -82,7 +82,7 @@ void Target::UpDate()
 				CreateDrawPos();					//描画位置再生成
 			} while (RectOverRap());
 
-			time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//制限時間設定
+			time->SetLimit(GetRand(LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN);	//制限時間設定
 			time->StartCount();	//計測開始
 		}
 
