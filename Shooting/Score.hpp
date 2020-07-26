@@ -7,8 +7,8 @@
 #include "Global.hpp"
 
 //############ マクロ定義 #################
-#define SCORE_DRAW_X	300	//スコア描画X位置
-#define SCORE_DRAW_Y	300	//スコア描画Y位置
+#define SCORE_DRAW_X	10	//スコア描画X位置
+#define SCORE_DRAW_Y	10	//スコア描画Y位置
 
 //############ クラス定義 #############
 class Score

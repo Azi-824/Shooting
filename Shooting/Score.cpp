@@ -29,5 +29,5 @@ void Score::AddScore(int value)
 //ÉXÉRÉAï`âÊ
 void Score::Draw()
 {
-	DrawFormatString(SCORE_DRAW_X, SCORE_DRAW_Y, COLOR_WHITE, "%d", score);
+	DrawFormatStringToHandle(SCORE_DRAW_X, SCORE_DRAW_Y, COLOR_BLACK, Font::GetNowHandle(), "%d", score);
 }
