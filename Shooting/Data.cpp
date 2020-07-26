@@ -65,9 +65,24 @@ void Data::Draw()
 	str += std::to_string(date.Day) + "日";	//日
 	str += std::to_string(Score) + "点";	//点
 
+	int x = 0, y = 0;	//描画位置
+	int Strlen = 0;		//文字列の長さ
+	int width = 0;		//横幅
+
 	if (Element == 0)	//先頭の時は
-		DrawStringToHandle(RANKING_DRAW_X, RANKING_DRAW_Y, RANK_INDEX_TEXT, COLOR_WHITE, Font::GetNowHandle(), COLOR_BLACK);	//表題描画
+	{
+		Strlen = strlen(RANK_INDEX_TEXT);	//長さ取得
+		width = GetDrawStringWidthToHandle(RANK_INDEX_TEXT, Strlen, Font::GetNowHandle());	//横幅取得
+		x = (GAME_WIDTH / 2) - (width / 2);				//X設定
+		DrawStringToHandle(x, RANKING_DRAW_Y, RANK_INDEX_TEXT, COLOR_WHITE, Font::GetNowHandle(), COLOR_BLACK);	//表題描画
+	}
+
+	Strlen = strlen(str.c_str());	//長さ取得
+	width = GetDrawStringWidthToHandle(str.c_str(), Strlen, Font::GetNowHandle());	//横幅取得
 	int height = GetFontSizeToHandle(Font::GetNowHandle());	//高さ取得
-	DrawStringToHandle(RANKING_DRAW_X, (RANKING_DRAW_Y + height) * (Element + 1), str.c_str(), COLOR_WHITE, Font::GetNowHandle(), COLOR_BLACK);
+	x = (GAME_WIDTH / 2) - (width / 2);				//X設定
+	y = (RANKING_DRAW_Y + height) * (Element + 1);	//Y設定
+
+	DrawStringToHandle(x, y, str.c_str(), COLOR_WHITE, Font::GetNowHandle(), COLOR_BLACK);
 
 }
