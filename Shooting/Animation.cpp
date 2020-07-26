@@ -166,6 +166,7 @@ void Animation::DrawCenter()
 {
 	if (IsDrawEnd == false)	//アニメーションが終わっていなければ
 	{
+		IsNowDraw = true;		//描画中か
 		DrawGraph((GAME_WIDTH / 2) - (Width / 2), (GAME_HEIGHT / 2) - (Height / 2), *Handle_itr, TRUE);	//イテレータ(ポインタ)を使用して描画
 	}
 
@@ -177,6 +178,7 @@ void Animation::DrawCenter()
 			//アニメーションをループしないなら
 			if (IsAnimeLoop == false)
 			{
+				IsNowDraw = false;	//描画中か
 				IsDrawEnd = true;	//描画終了
 			}
 
@@ -208,6 +210,7 @@ void Animation::DrawCenter(RECT rect)
 
 	if (IsDrawEnd == false)	//アニメーションが終わっていなければ
 	{
+		IsNowDraw = true;		//描画中か
 		DrawGraph(x, y, *Handle_itr, TRUE);	//イテレータ(ポインタ)を使用して描画
 	}
 
@@ -220,6 +223,7 @@ void Animation::DrawCenter(RECT rect)
 			if (IsAnimeLoop == false)
 			{
 				IsDrawEnd = true;	//描画終了
+				IsNowDraw = false;	//描画中か
 			}
 
 			//次回の描画に備えて、先頭の画像に戻しておく
