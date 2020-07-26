@@ -100,8 +100,6 @@ bool Save::DataSave(vector<Data*> data)
 
 	}
 
-	Sort(&data);	//ソート処理
-
 	vector<DATEDATA> date;	//日付データ
 	vector<int>	score;		//スコア
 	for (auto d : data)

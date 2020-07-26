@@ -156,6 +156,7 @@ void Play::Run()
 		StartFlg = false;
 		bgm->Stop();			//BGMを止める
 		data.push_back(new Data(Score::GetScore()));	//データを追加
+		Save::Sort(&data);		//ソート
 		Save::DataSave(data);	//セーブ
 		NowScene = SCENE_RANKING;	//エンド画面へ
 	}

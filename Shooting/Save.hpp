@@ -30,7 +30,6 @@ class Save
 
 private:
 
-	static void Sort(vector<Data*>*);	//ソート処理
 
 public:
 
@@ -39,5 +38,7 @@ public:
 
 	static bool Load(vector<Data*>*);		//読み込み
 	static bool DataSave(vector<Data*>);	//セーブ
+	static void Sort(vector<Data*>*);		//ソート処理
+
 
 };
