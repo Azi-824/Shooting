@@ -12,16 +12,6 @@
 #include "Font.hpp"
 
 //################### マクロ定義 #########################
-//テキスト関係
-#define LOAD_TEXT	"NowLoading…"		//ロード画面のテキスト
-#define PUSH_TEXT	"PushEnter"			//エンターキーを押す、のテキスト
-#define TITLE_TEXT	"NowTitle"			//タイトル画面のテキスト
-#define PLAY_TEXT	"NowPlay"			//プレイ画面のテキスト
-#define END_TEXT	"NowRanking"		//エンド画面のテキスト
-
-//座標関係
-#define TEST_TEXT_X	30					//テスト用のテキスト描画X位置
-#define TEST_TEXT_Y	30					//テスト用のテキスト描画Y位置
 
 //################### 列挙型 #####################
 enum GAME_SCENE

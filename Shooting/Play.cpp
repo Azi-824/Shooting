@@ -182,13 +182,6 @@ void Play::Run()
 		NowScene = SCENE_RANKING;	//エンド画面へ
 	}
 
-	if (Mouse::OnRightClick())	//右クリックしたら
-	{
-		StartFlg = false;
-		bgm->Stop();			//BGMを止める
-		NowScene = SCENE_RANKING;	//エンド画面へ
-	}
-
 }
 
 //シーンが変わって1回目だけ行う処理

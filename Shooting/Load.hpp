@@ -9,6 +9,10 @@
 //################### マクロ定義 ###################
 #define TEXT_DISCRIPTION	"画面に表示される的をクリックしよう！\n爆弾をクリックすると、\n時間が減ってしまうから気を付けよう！"
 
+//座標関係
+#define TEXT_DISCRIPTION_X	30					//説明のテキスト描画X位置
+#define TEXT_DISCRIPTION_Y	30					//説明のテキスト描画Y位置
+
 //################### クラス定義 ###################
 class Load : public Scene	//Sceneクラスを継承
 {

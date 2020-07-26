@@ -56,16 +56,8 @@ void Load::Run()
 	}
 
 	//********************************* 描画系 ************************************
-	//if (IsGameStart)	//ゲームスタートできるなら
-	//{
-	//	DrawStringToHandle(TEST_TEXT_X, TEST_TEXT_Y, PUSH_TEXT, GetColor(255, 255, 255), Font::GetNowHandle());
-	//}
-	//else		//できないなら
-	//{
-	//	DrawStringToHandle(TEST_TEXT_X, TEST_TEXT_Y, LOAD_TEXT, GetColor(255, 255, 255), Font::GetNowHandle());
-	//}
 	font.at(FH_MINI)->Chenge();	//フォント変更
-	DrawStringToHandle(TEST_TEXT_X, TEST_TEXT_Y, TEXT_DISCRIPTION, GetColor(255, 255, 255), Font::GetNowHandle());
+	DrawStringToHandle(TEXT_DISCRIPTION_X, TEXT_DISCRIPTION_Y, TEXT_DISCRIPTION, GetColor(255, 255, 255), Font::GetNowHandle());
 	font.at(FH_NORMAL)->Chenge();	//フォント変更
 
 }

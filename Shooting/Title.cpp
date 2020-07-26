@@ -50,7 +50,6 @@ void Title::SetInit()
 	button.at(BT_END)->SetInit(BT_END_X, BT_END_Y);			//エンドボタン設定
 }
 
-
 //タイトル画面の処理
 void Title::Run()
 {
