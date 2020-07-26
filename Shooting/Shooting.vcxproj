@@ -199,6 +199,9 @@
     <ClInclude Include="Title.hpp" />
     <ClInclude Include="Toy.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

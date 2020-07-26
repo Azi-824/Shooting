@@ -148,7 +148,7 @@ void Play::Run()
 
 	bgm->Play();	//BGM‚ğ—¬‚·
 	back->Draw(GAME_LEFT, GAME_TOP);	//”wŒi•`‰æ
-	Score::Draw();
+	Score::Draw();	//ƒXƒRƒA•`‰æ
 
 	//“IŠÖŒW
 	for (auto t : target)
