@@ -174,6 +174,7 @@ void Play::Start()
 {
 	if (!StartFlg)
 	{
+		Score::Reset();			//スコアリセット
 		limit->StartCount();	//制限時間のカウントスタート
 		StartFlg = true;
 	}

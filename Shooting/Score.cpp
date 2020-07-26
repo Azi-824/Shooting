@@ -31,3 +31,9 @@ void Score::Draw()
 {
 	DrawFormatStringToHandle(SCORE_DRAW_X, SCORE_DRAW_Y, COLOR_BLACK, Font::GetNowHandle(), "%d", score);
 }
+
+//ƒŠƒZƒbƒg
+void Score::Reset()
+{
+	score = 0;
+}

@@ -25,5 +25,6 @@ public:
 	static int GetScore();			//スコア取得
 	static void AddScore(int);		//スコア加算
 	static void Draw();				//スコア描画
+	static void Reset();			//リセット
 
 };
