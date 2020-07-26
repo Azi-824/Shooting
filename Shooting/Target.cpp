@@ -66,20 +66,28 @@ void Target::SetInit()
 //毎回行う処理
 void Target::UpDate()
 {
-	if (time->GetIsLimit())	//制限時間を超えたか
+
+	if (!effect->GetIsNowEffect())	//エフェクト描画中じゃなければ
 	{
-		/*
-		描画しているときは、描画を消す
-		描画していない時は、次の描画までの時間が過ぎたときのため、再描画する
-		*/
-		img->SetIsDraw(!img->GetIsDraw());	//現在の描画状態の逆を設定
-		do
+		if (time->GetIsLimit())	//制限時間を超えたか
 		{
-			CreateDrawPos();					//描画位置再生成
-		} while (RectOverRap());
-		time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//制限時間設定
-		time->StartCount();	//計測開始
+			/*
+			描画しているときは、描画を消す
+			描画していない時は、次の描画までの時間が過ぎたときのため、再描画する
+			*/
+			img->SetIsDraw(!img->GetIsDraw());	//現在の描画状態の逆を設定
+
+			do
+			{
+				CreateDrawPos();					//描画位置再生成
+			} while (RectOverRap());
+
+			time->SetLimit(GetRand((LIMIT_MAX - LIMIT_MIN) + LIMIT_MIN));	//制限時間設定
+			time->StartCount();	//計測開始
+		}
+
 	}
+
 }
 
 //描画位置生成

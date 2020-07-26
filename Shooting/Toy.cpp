@@ -29,6 +29,6 @@ void Toy::Event(Time* limit)
 		effect->Reset();			//エフェクトリセット
 		img->SetIsDraw(false);		//的非表示
 		SetEventFlg(false);			//イベント終了
+		time->StartCount();			//再計測
 	}
-	time->StartCount();		//再計測
 }

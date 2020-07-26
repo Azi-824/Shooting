@@ -146,6 +146,10 @@ void Save::Sort(vector<Data*> *data)
 				auto temp = data->at(j);
 				data->at(j) = data->at(j - 1);
 				data->at(j - 1) = temp;
+				//—v‘f”Ô†‚ÌŒðŠ·
+				auto temp2 = data->at(j)->GetElement();
+				data->at(j)->SetElement(data->at(j - 1)->GetElement());
+				data->at(j - 1)->SetElement(temp2);
 			}
 		}
 	}

@@ -86,3 +86,15 @@ void Data::Draw()
 	DrawStringToHandle(x, y, str.c_str(), COLOR_WHITE, Font::GetNowHandle(), COLOR_BLACK);
 
 }
+
+//—v‘f”Ô†İ’è
+void Data::SetElement(int element)
+{
+	Element = element;
+}
+
+//—v‘f”Ô†æ“¾
+int Data::GetElement()
+{
+	return Element;
+}

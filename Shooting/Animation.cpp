@@ -23,6 +23,7 @@ Animation::Animation(const char* dir, const char* name, int SplitNumALL, int Spr
 	//メンバー変数初期化
 	IsLoad = false;			//読み込めたか？
 	IsDrawEnd = false;		//描画終了したか?
+	IsNowDraw = false;		//描画中か
 	Width = 0;				//横幅を初期化
 	Height = 0;				//高さを初期化
 
@@ -105,10 +106,17 @@ bool Animation::GetIsDrawEnd()
 	return IsDrawEnd;
 }
 
+//描画中か取得
+bool Animation::GetIsNowDraw()
+{
+	return IsNowDraw;
+}
+
 //リセット
 void Animation::Reset()
 {
 	IsDrawEnd = false;
+	IsNowDraw = false;		//描画中か
 }
 
 //描画
@@ -120,6 +128,7 @@ void Animation::Draw(int x, int y)
 {
 	if (IsDrawEnd == false)	//アニメーションが終わっていなければ
 	{
+		IsNowDraw = true;		//描画中か
 		DrawGraph(x, y, *Handle_itr, TRUE);	//イテレータ(ポインタ)を使用して描画
 	}
 
@@ -132,6 +141,7 @@ void Animation::Draw(int x, int y)
 			if (IsAnimeLoop == false)
 			{
 				IsDrawEnd = true;	//描画終了
+				IsNowDraw = false;	//描画中か
 			}
 
 			//次回の描画に備えて、先頭の画像に戻しておく

@@ -65,6 +65,7 @@ private:
 
 	bool IsAnimeLoop;			//アニメーションはループする？
 	bool IsDrawEnd;				//描画終了したか
+	bool IsNowDraw;				//描画中か
 
 	bool IsLoad;				//読み込めたか？
 
@@ -80,6 +81,7 @@ public:
 
 	bool GetIsLoad(void);	//読み込めた？
 	bool GetIsDrawEnd();	//描画終了したか取得
+	bool GetIsNowDraw();	//描画中か取得
 
 	void Reset();			//リセット
 

@@ -45,13 +45,8 @@ public:
 
 	void SetInit();						//初期設定
 
+	bool GetIsNowEffect();				//エフェクト描画中か取得
 	bool GetIsEffectEnd();				//エフェクト終了したか取得
 	void Reset();						//リセット
-
-	void SetIsFadeout(bool);			//フェードアウトをするか設定
-	void SetIsFadein(bool);				//フェードインをするか設定
-
-	bool FadeOut(int, int, int, int);	//フェードアウトエフェクト
-	bool FadeIn(int, int, int, int);	//フェードインエフェクト
 
 };

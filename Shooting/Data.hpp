@@ -41,5 +41,7 @@ public:
 	int GetScore();		//スコア取得
 
 	void Draw();		//スコア描画
+	void SetElement(int);	//要素番号設定
+	int GetElement();		//要素番号取得
 
 };
