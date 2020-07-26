@@ -12,11 +12,16 @@ vector<string> Font::FilePath;		//読み込んだフォントのパス
 int Font::NowFont;					//現在のフォントハンドル
 
 //コンストラクタ
+//引数は、DxLibのCreateFontToHandle()の引数と同じ
 //引　数：int：読み込むフォントの名前
 //引　数：int：フォントのサイズ
 //引　数：int：フォントの太さ
 //引　数：int：フォントのタイプ
-Font::Font(int fontname, int size, int bold, int fonttype)
+//残りの引数は、デフォルト引数
+Font::Font(int fontname, int size, int bold, int fonttype, int charset,
+	int edgesize,
+	int ltalic,
+	int handle)
 {
 	//メンバー初期化
 	Handle = -1;		//ハンドル初期化
@@ -30,7 +35,7 @@ Font::Font(int fontname, int size, int bold, int fonttype)
 			return;			//読み込み失敗
 	}
 
-	Handle = CreateFontToHandle(LoadFontName.at(fontname).c_str(), size, bold, fonttype);	//フォントハンドルを作成
+	Handle = CreateFontToHandle(LoadFontName.at(fontname).c_str(), size, bold, fonttype,charset,edgesize,ltalic,handle);	//フォントハンドルを作成
 
 	//ハンドルの作成に成功したかどうか
 	Handle == -1 ? IsCreate = false : IsCreate = true;

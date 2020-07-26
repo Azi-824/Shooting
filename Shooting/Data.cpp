@@ -59,8 +59,15 @@ void Data::Draw()
 	if (Element >= RANKING_DRAW_MAX)	//描画する最大数より多ければ
 		return;	//描画せず終了
 
+	string str;	//描画文字列
+	str = std::to_string(date.Year) + "年";	//年
+	str += std::to_string(date.Mon) + "月";	//月
+	str += std::to_string(date.Day) + "日";	//日
+	str += std::to_string(Score) + "点";	//点
+
 	if (Element == 0)	//先頭の時は
-		DrawStringToHandle(RANKING_DRAW_X, RANKING_DRAW_Y, RANK_INDEX_TEXT, COLOR_GREEN, Font::GetNowHandle());	//表題描画
+		DrawStringToHandle(RANKING_DRAW_X, RANKING_DRAW_Y, RANK_INDEX_TEXT, COLOR_WHITE, Font::GetNowHandle(), COLOR_BLACK);	//表題描画
 	int height = GetFontSizeToHandle(Font::GetNowHandle());	//高さ取得
-	DrawFormatStringToHandle(RANKING_DRAW_X, (RANKING_DRAW_Y + height) * (Element + 1), COLOR_GREEN, Font::GetNowHandle(),"%d年 %d月 %d日 %d点", date.Year, date.Mon, date.Day, Score, COLOR_WHITE);
+	DrawStringToHandle(RANKING_DRAW_X, (RANKING_DRAW_Y + height) * (Element + 1), str.c_str(), COLOR_WHITE, Font::GetNowHandle(), COLOR_BLACK);
+
 }

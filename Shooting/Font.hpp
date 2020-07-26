@@ -32,6 +32,8 @@
 //************* フォントの太さ *****************
 #define F_BOLD_NORMAL	5			//通常のフォントの太さ
 
+#define F_EDGE_SIZE		3			//縁取りの太さ
+
 //################ マクロ定義 エラーメッセージ #################
 #define FONT_ERROR_TITLE "FONT_ERROR"						//エラータイトル
 #define FONT_ERROR_MSG	"フォントが読み込めませんでした"	//エラーメッセージ
@@ -68,7 +70,11 @@ private:
 
 public:
 
-	Font(int, int, int, int);		//コンストラクタ
+	Font(int, int, int, int, 
+		int charset = -1,
+		int edgesize = -1,
+		int ltalic = 0,
+		int handle = -1);		//コンストラクタ
 	~Font();	//デストラクタ
 
 	static bool ReleaseFont();		//読み込んだフォントを開放

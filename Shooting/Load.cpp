@@ -25,7 +25,7 @@ bool Load::DataLoad()
 	if (!Save::Load(&data)) { return false; }	//セーブデータ読み込み失敗
 	font.push_back(new Font(F_NAME_HGS, F_SIZE_NORMAL, F_BOLD_NORMAL, DX_FONTTYPE_ANTIALIASING));	//フォント(通常サイズ生成)
 	font.push_back(new Font(F_NAME_HGS, F_SIZE_MINI, F_BOLD_NORMAL, DX_FONTTYPE_ANTIALIASING));		//フォント(ミニサイズ生成)
-	font.push_back(new Font(F_NAME_HGS, F_SIZE_RANKING, F_BOLD_NORMAL, DX_FONTTYPE_ANTIALIASING));	//フォント(ランキング用サイズ生成)
+	font.push_back(new Font(F_NAME_HGS, F_SIZE_RANKING, F_BOLD_NORMAL, DX_FONTTYPE_ANTIALIASING_EDGE_4X4,-1,F_EDGE_SIZE));	//フォント(ランキング用サイズ生成)
 	for (auto f : font)
 	{
 		if (!f->GetIsCreate()) { return false; }	//読み込み失敗
