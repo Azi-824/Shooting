@@ -13,9 +13,14 @@
 //###################### 列挙型 ##########################
 enum EFFECT_NAME
 {
-	EF_NAME_SHOT,		//銃撃エフェクト
-	EF_NAME_EXPLOSION,	//爆発エフェクト
-	EF_NAME_ITEM		//アイテムエフェクト
+	EF_NAME_SHOT01,		//銃撃エフェクト01
+	EF_NAME_SHOT02,		//銃撃エフェクト02
+	EF_NAME_SHOT03,		//銃撃エフェクト03
+	EF_NAME_EXPLOSION01,//爆発エフェクト01
+	EF_NAME_EXPLOSION02,//爆発エフェクト02
+	EF_NAME_EXPLOSION03,//爆発エフェクト03
+	EF_NAME_ITEM01,		//アイテムエフェクト01
+	EF_NAME_ITEM02		//アイテムエフェクト02
 };
 
 using std::vector;

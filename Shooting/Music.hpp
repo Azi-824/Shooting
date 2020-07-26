@@ -33,6 +33,12 @@
 #define VOLUME_MAX		255	//音量の最大値
 
 //##################### 列挙型 #########################
+enum EF_SE_NAME
+{
+	EF_SE_SHOT,		//銃撃
+	EF_SE_EXPLOSION,//爆発
+	EF_SE_ITEM		//アイテム
+};
 
 using std::string;
 
