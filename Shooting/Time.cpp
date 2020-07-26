@@ -63,8 +63,7 @@ void Time::UpDate()
 void Time::Draw(int x, int y)
 {
 	UpDate();	//XV
-	//DrawFormatStringToHandle(x, y, COLOR_WHITE, NowFontHandle ,"%d", LimitTime);	//§ŒÀŠÔ‚ğ•`‰æ
-	DrawFormatString(x, y, COLOR_WHITE, "%d", NowLimit);	//§ŒÀŠÔ•`‰æ
+	DrawFormatStringToHandle(x, y, COLOR_BLACK, Font::GetNowHandle() ,"%d", NowLimit);	//§ŒÀŠÔ‚ğ•`‰æ
 }
 
 //§ŒÀŠÔ‚ª‰ß‚¬‚½‚©æ“¾
